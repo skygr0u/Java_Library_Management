@@ -89,9 +89,9 @@ public class BookManager extends javax.swing.JFrame {
             }
         ));
         Book_Table.setColorBackgoundHead(new java.awt.Color(57, 62, 70));
-        Book_Table.setColorFilasForeground1(new java.awt.Color(0, 173, 181));
-        Book_Table.setColorFilasForeground2(new java.awt.Color(0, 173, 181));
-        Book_Table.setColorSelBackgound(new java.awt.Color(0, 173, 181));
+        Book_Table.setColorFilasForeground1(new java.awt.Color(57, 62, 70));
+        Book_Table.setColorFilasForeground2(new java.awt.Color(57, 62, 70));
+        Book_Table.setColorSelBackgound(new java.awt.Color(57, 62, 70));
         Book_Table.setRowHeight(40);
         Book_Table.setSelectionBackground(new java.awt.Color(238, 238, 238));
         Book_Table.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -138,7 +138,7 @@ public class BookManager extends javax.swing.JFrame {
             .addGap(0, 10, Short.MAX_VALUE)
         );
 
-        jPanel3.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 160, 320, 10));
+        jPanel3.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 160, 320, 10));
 
         jPanel7.setBackground(new java.awt.Color(34, 40, 49));
 
@@ -150,10 +150,10 @@ public class BookManager extends javax.swing.JFrame {
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 20, Short.MAX_VALUE)
+            .addGap(0, 30, Short.MAX_VALUE)
         );
 
-        jPanel3.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 0, -1, 20));
+        jPanel3.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 0, -1, 30));
 
         UpdateBtn.setBackground(new java.awt.Color(57, 62, 70));
         UpdateBtn.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -252,8 +252,8 @@ public class BookManager extends javax.swing.JFrame {
         jLabel9.setBackground(new java.awt.Color(0, 173, 181));
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 173, 181));
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/id-card.png"))); // NOI18N
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 350, 80, -1));
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/pass.png"))); // NOI18N
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 330, 70, -1));
 
         jLabel10.setBackground(new java.awt.Color(0, 173, 181));
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N

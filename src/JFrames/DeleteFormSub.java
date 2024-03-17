@@ -4,23 +4,22 @@ import biblio.DatabaseConnection;
 import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
 
-public class DeleteForm extends javax.swing.JFrame {
+public class DeleteFormSub extends javax.swing.JFrame {
 
-    public DeleteForm() {
+    public DeleteFormSub() {
         initComponents();
     }
-    
-   
-    //Delete book detail
-    public boolean deleteBook(){
+
+    //Delete Sub detail
+    public boolean deleteSubscriber(){
         boolean isDeleted = false;
-        int bookID = Integer.parseInt(tfID.getText());
+        int SubID = Integer.parseInt(tfID.getText());
         
         try {
             java.sql.Connection con = DatabaseConnection.getConnection();
-            String sql = "delete from livres where idlivre = ? ";
+            String sql = "delete from abonnés where idabonné = ? ";
             PreparedStatement pst = con.prepareStatement(sql);
-            pst.setInt(1, bookID);
+            pst.setInt(1, SubID);
             
             int rowCount = pst.executeUpdate();
             if (rowCount > 0) {
@@ -139,8 +138,9 @@ public class DeleteForm extends javax.swing.JFrame {
 
         DeleteBtn.setBackground(new java.awt.Color(57, 62, 70));
         DeleteBtn.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        DeleteBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/delete.png"))); // NOI18N
-        DeleteBtn.setText("Delete Book");
+        DeleteBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/user.png"))); // NOI18N
+        DeleteBtn.setText("Delete Subscriber");
+        DeleteBtn.setActionCommand("Delete Subsciber");
         DeleteBtn.setColorHover(new java.awt.Color(255, 211, 105));
         DeleteBtn.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         DeleteBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -148,7 +148,7 @@ public class DeleteForm extends javax.swing.JFrame {
                 DeleteBtnActionPerformed(evt);
             }
         });
-        panel1.add(DeleteBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, 240, 70));
+        panel1.add(DeleteBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, 270, 70));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -173,13 +173,13 @@ public class DeleteForm extends javax.swing.JFrame {
         // TODO add your handling code here:
         String bookID = tfID.getText();
         if (bookID.isEmpty()){
-            JOptionPane.showMessageDialog(this, "Enter Book ID");
+            JOptionPane.showMessageDialog(this, "Enter Subscriber ID");
         }
-        else if (deleteBook()== true) {
-            JOptionPane.showMessageDialog(this, "Book Deleted");
+        else if (deleteSubscriber()== true) {
+            JOptionPane.showMessageDialog(this, "Subscriber Deleted");
             dispose();
         }else{
-            JOptionPane.showMessageDialog(this, "Book Deletion Failed","Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Subscriber Deletion Failed","Error", JOptionPane.ERROR_MESSAGE);
             dispose();
         }
     }//GEN-LAST:event_DeleteBtnActionPerformed
@@ -203,20 +203,21 @@ public class DeleteForm extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(DeleteForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DeleteFormSub.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(DeleteForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DeleteFormSub.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(DeleteForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DeleteFormSub.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(DeleteForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DeleteFormSub.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new DeleteForm().setVisible(true);
+                new DeleteFormSub().setVisible(true);
             }
         });
     }

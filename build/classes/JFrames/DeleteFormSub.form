@@ -229,9 +229,10 @@
               </Border>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/icon/delete.png"/>
+              <Image iconType="3" name="/icon/user.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Delete Book"/>
+            <Property name="text" type="java.lang.String" value="Delete Subscriber"/>
+            <Property name="actionCommand" type="java.lang.String" value="Delete Subsciber"/>
             <Property name="colorHover" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="69" green="d3" red="ff" type="rgb"/>
             </Property>
@@ -244,7 +245,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="80" y="240" width="240" height="70"/>
+              <AbsoluteConstraints x="70" y="240" width="270" height="70"/>
             </Constraint>
           </Constraints>
         </Component>
