@@ -17,7 +17,7 @@ public class SubsManager extends javax.swing.JFrame {
         setSubsDetailsToTable();
     }
 
-    String Email, Username, Contact;
+    String Email, Username, Contact, password;
     int SubID;
     DefaultTableModel model;
     @SuppressWarnings("unchecked")
@@ -35,6 +35,7 @@ public class SubsManager extends javax.swing.JFrame {
         jPanel7 = new javax.swing.JPanel();
         UpdateBtn = new rojeru_san.complementos.RSButtonHover();
         DeleteBtn = new rojeru_san.complementos.RSButtonHover();
+        AddBtn = new rojeru_san.complementos.RSButtonHover();
         jPanel2 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -53,6 +54,12 @@ public class SubsManager extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        disable = new javax.swing.JLabel();
+        tfPassword = new javax.swing.JPasswordField();
+        show = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -75,7 +82,7 @@ public class SubsManager extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Sub ID", "UserName", "Email", "Contact"
+                "Sub ID", "UserName", "Crypted Password", "Email", "Contact"
             }
         ));
         Sub_Table.setColorBackgoundHead(new java.awt.Color(57, 62, 70));
@@ -156,7 +163,7 @@ public class SubsManager extends javax.swing.JFrame {
                 UpdateBtnActionPerformed(evt);
             }
         });
-        jPanel3.add(UpdateBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 650, 270, 70));
+        jPanel3.add(UpdateBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 670, 260, 70));
 
         DeleteBtn.setBackground(new java.awt.Color(57, 62, 70));
         DeleteBtn.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -169,7 +176,25 @@ public class SubsManager extends javax.swing.JFrame {
                 DeleteBtnActionPerformed(evt);
             }
         });
-        jPanel3.add(DeleteBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 650, 280, 70));
+        jPanel3.add(DeleteBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 670, 280, 70));
+
+        AddBtn.setBackground(new java.awt.Color(57, 62, 70));
+        AddBtn.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        AddBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/library.png"))); // NOI18N
+        AddBtn.setText("Add Member");
+        AddBtn.setColorHover(new java.awt.Color(255, 211, 105));
+        AddBtn.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
+        AddBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                AddBtnMouseClicked(evt);
+            }
+        });
+        AddBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddBtnActionPerformed(evt);
+            }
+        });
+        jPanel3.add(AddBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 670, 250, 70));
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 0, 970, 800));
 
@@ -180,13 +205,13 @@ public class SubsManager extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 173, 181));
         jLabel6.setText("Subsciber ID");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 210, 300, 40));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 180, 300, 40));
 
         jLabel5.setBackground(new java.awt.Color(0, 173, 181));
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 173, 181));
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/card.png"))); // NOI18N
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, 80, 70));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, 80, 70));
 
         tfID.setBackground(new java.awt.Color(34, 40, 49));
         tfID.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
@@ -199,13 +224,13 @@ public class SubsManager extends javax.swing.JFrame {
                 tfIDFocusLost(evt);
             }
         });
-        jPanel2.add(tfID, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, 290, 50));
+        jPanel2.add(tfID, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 210, 290, 50));
 
         jLabel8.setBackground(new java.awt.Color(0, 173, 181));
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 173, 181));
         jLabel8.setText("UserName");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 320, 300, 40));
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 290, 300, 40));
 
         tfUserName.setBackground(new java.awt.Color(34, 40, 49));
         tfUserName.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
@@ -213,25 +238,25 @@ public class SubsManager extends javax.swing.JFrame {
         tfUserName.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         tfUserName.setPhColor(new java.awt.Color(255, 255, 255));
         tfUserName.setPlaceholder("Enter UserName...");
-        jPanel2.add(tfUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 350, 290, 50));
+        jPanel2.add(tfUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 320, 290, 50));
 
         jLabel7.setBackground(new java.awt.Color(0, 173, 181));
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 173, 181));
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/id-card.png"))); // NOI18N
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 340, 80, 70));
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, 80, 70));
 
         jLabel9.setBackground(new java.awt.Color(0, 173, 181));
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 173, 181));
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/adress.png"))); // NOI18N
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 440, 80, 70));
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 510, 80, 70));
 
         jLabel10.setBackground(new java.awt.Color(0, 173, 181));
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 173, 181));
         jLabel10.setText("Email Adresse");
-        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 420, 300, 40));
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 490, 300, 40));
 
         tfEmail.setBackground(new java.awt.Color(34, 40, 49));
         tfEmail.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
@@ -239,13 +264,13 @@ public class SubsManager extends javax.swing.JFrame {
         tfEmail.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         tfEmail.setPhColor(new java.awt.Color(255, 255, 255));
         tfEmail.setPlaceholder("Enter Email Adresse...");
-        jPanel2.add(tfEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 450, 290, 50));
+        jPanel2.add(tfEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 520, 290, 50));
 
         jLabel12.setBackground(new java.awt.Color(0, 173, 181));
         jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(0, 173, 181));
         jLabel12.setText("Contact");
-        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 520, 300, 40));
+        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 590, 300, 40));
 
         tfNumber.setBackground(new java.awt.Color(34, 40, 49));
         tfNumber.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
@@ -253,13 +278,13 @@ public class SubsManager extends javax.swing.JFrame {
         tfNumber.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         tfNumber.setPhColor(new java.awt.Color(255, 255, 255));
         tfNumber.setPlaceholder("Enter  Phone Number...");
-        jPanel2.add(tfNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 550, 290, 50));
+        jPanel2.add(tfNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 620, 290, 50));
 
         jLabel11.setBackground(new java.awt.Color(0, 173, 181));
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 173, 181));
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/contact-information.png"))); // NOI18N
-        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 540, 80, 70));
+        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 610, 80, 70));
 
         jPanel4.setBackground(new java.awt.Color(57, 62, 70));
 
@@ -315,7 +340,7 @@ public class SubsManager extends javax.swing.JFrame {
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, 160));
@@ -327,7 +352,56 @@ public class SubsManager extends javax.swing.JFrame {
                 jLabel20MouseClicked(evt);
             }
         });
-        jPanel2.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 650, 80, 80));
+        jPanel2.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 700, 80, 80));
+
+        jLabel13.setBackground(new java.awt.Color(0, 173, 181));
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(0, 173, 181));
+        jLabel13.setText("Password Crypted");
+        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 390, 130, 40));
+
+        jLabel14.setBackground(new java.awt.Color(0, 173, 181));
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(0, 173, 181));
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/password.png"))); // NOI18N
+        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 410, 80, 70));
+
+        disable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icons8_invisible_20px_1.png"))); // NOI18N
+        disable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                disableMouseClicked(evt);
+            }
+        });
+        jPanel2.add(disable, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 400, -1, -1));
+
+        tfPassword.setBackground(new java.awt.Color(34, 40, 49));
+        tfPassword.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        tfPassword.setForeground(new java.awt.Color(255, 255, 255));
+        tfPassword.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+        tfPassword.setCaretColor(new java.awt.Color(255, 255, 255));
+        tfPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfPasswordActionPerformed(evt);
+            }
+        });
+        jPanel2.add(tfPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 440, 290, 30));
+
+        show.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icons8_eye_20px_1.png"))); // NOI18N
+        show.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                showMouseClicked(evt);
+            }
+        });
+        jPanel2.add(show, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 400, -1, -1));
+
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/refresh.png"))); // NOI18N
+        jLabel15.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel15.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel15MouseClicked(evt);
+            }
+        });
+        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 710, -1, -1));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, 800));
 
@@ -340,21 +414,55 @@ public class SubsManager extends javax.swing.JFrame {
         try {
             java.sql.Connection con = DatabaseConnection.getConnection();
             Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery("select idabonné, username, email, contact from abonnés");
+            ResultSet rs = st.executeQuery("select * from abonnés");
             
             while(rs.next()){
                 int SubID = rs.getInt("idabonné");
                 String Username = rs.getString("username");
+                String Password = rs.getString("password");
                 String Email = rs.getString("email");
                 String Contact = rs.getString("contact");
                 
-                Object[] obj = {SubID,Username,Email,Contact};
+                
+                Object[] obj = {SubID,Username,Password,Email,Contact};
                 model =(DefaultTableModel) Sub_Table.getModel();
                 model.addRow(obj);
             }
         } catch (Exception e) {
             e.printStackTrace();
         } 
+    }
+    
+    //add book to book_details table
+    public boolean addSubscriber(){
+        boolean isAdded = false;
+        int SubID = Integer.parseInt(tfID.getText());
+        String Username = tfUserName.getText();
+        String Email = tfEmail.getText();
+        String Contact = tfNumber.getText();
+        char[] passwordChars = tfPassword.getPassword(); 
+        String pwd = new String(passwordChars);
+
+        try {
+            java.sql.Connection con = DatabaseConnection.getConnection();
+            String sql = "insert into abonnés values(?,?,?,?,?)";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setInt(1, SubID);
+            pst.setString(2, Username);
+            pst.setString(3, pwd);
+            pst.setString(4, Email);
+            pst.setString(5, Contact);
+         
+            int rowCount = pst.executeUpdate();
+            if (rowCount > 0) {
+                isAdded = true;
+            }else{
+                isAdded = false;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return isAdded;
     }
     
     //Clears Table
@@ -417,11 +525,16 @@ public class SubsManager extends javax.swing.JFrame {
         // TODO add your handling code here:
         int rowNo = Sub_Table.getSelectedRow();
         TableModel model = Sub_Table.getModel();
-        
+
+        String pwd = model.getValueAt(rowNo, 2).toString();
+        char[] password = pwd.toCharArray(); 
+
         tfID.setText(model.getValueAt(rowNo, 0).toString());
         tfUserName.setText(model.getValueAt(rowNo, 1).toString());
-        tfEmail.setText(model.getValueAt(rowNo, 2).toString());
-        tfNumber.setText(model.getValueAt(rowNo, 3).toString());
+        tfPassword.setEchoChar('*'); 
+        tfPassword.setText(pwd); 
+        tfEmail.setText(model.getValueAt(rowNo, 3).toString());
+        tfNumber.setText(model.getValueAt(rowNo, 4).toString());
     }//GEN-LAST:event_Sub_TableMouseClicked
 
     private void UpdateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateBtnActionPerformed
@@ -449,7 +562,53 @@ public class SubsManager extends javax.swing.JFrame {
         tfUserName.setText("");
         tfEmail.setText("");
         tfNumber.setText("");
+        tfPassword.setText("");
     }//GEN-LAST:event_jLabel20MouseClicked
+
+    private void tfPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfPasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfPasswordActionPerformed
+    
+     
+    private void disableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_disableMouseClicked
+        // TODO add your handling code here:
+        tfPassword.setEchoChar((char)0);
+        disable.setVisible(false);
+        disable.setEnabled(false);
+        show.setEnabled(true);
+        show.setEnabled(true);
+    }//GEN-LAST:event_disableMouseClicked
+
+    private void showMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showMouseClicked
+        // TODO add your handling code here:
+        tfPassword.setEchoChar((char)8226);
+        disable.setVisible(true);
+        disable.setEnabled(true);
+        show.setEnabled(false);
+        show.setEnabled(false);
+    }//GEN-LAST:event_showMouseClicked
+
+    private void AddBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddBtnMouseClicked
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_AddBtnMouseClicked
+
+    private void AddBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddBtnActionPerformed
+        // TODO add your handling code here:
+        if (addSubscriber() == true) {
+            JOptionPane.showMessageDialog(this, "Subscriber Added");
+            clearTable();
+            setSubsDetailsToTable();
+        }else{
+            JOptionPane.showMessageDialog(this, "Subscriber Addition Failed", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_AddBtnActionPerformed
+
+    private void jLabel15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseClicked
+        // TODO add your handling code here:
+        clearTable();
+        setSubsDetailsToTable();
+    }//GEN-LAST:event_jLabel15MouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -487,13 +646,18 @@ public class SubsManager extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private rojeru_san.complementos.RSButtonHover AddBtn;
     private rojeru_san.complementos.RSButtonHover DeleteBtn;
     private rojeru_san.complementos.RSTableMetro Sub_Table;
     private rojeru_san.complementos.RSButtonHover UpdateBtn;
+    private javax.swing.JLabel disable;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
@@ -512,9 +676,11 @@ public class SubsManager extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel show;
     private app.bolivia.swing.JCTextField tfEmail;
     private app.bolivia.swing.JCTextField tfID;
     private app.bolivia.swing.JCTextField tfNumber;
+    private javax.swing.JPasswordField tfPassword;
     private app.bolivia.swing.JCTextField tfUserName;
     // End of variables declaration//GEN-END:variables
 }

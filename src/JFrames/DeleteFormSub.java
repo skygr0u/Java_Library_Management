@@ -58,7 +58,7 @@ public class DeleteFormSub extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 211, 105));
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/execution.png"))); // NOI18N
-        jLabel3.setText("Delete Book");
+        jLabel3.setText("Delete Subscriber");
 
         panel3.setBackground(new java.awt.Color(255, 211, 105));
 
@@ -94,17 +94,20 @@ public class DeleteFormSub extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel2Layout.createSequentialGroup()
                         .addComponent(panel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(55, 55, 55))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
+            .addGroup(panel2Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panel2Layout.setVerticalGroup(
             panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel2Layout.createSequentialGroup()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(2, 2, 2)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(16, 16, 16)
+                .addGap(20, 20, 20)
                 .addComponent(panel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -114,7 +117,7 @@ public class DeleteFormSub extends javax.swing.JFrame {
         jLabel6.setBackground(new java.awt.Color(0, 173, 181));
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 173, 181));
-        jLabel6.setText("Enter Book ID");
+        jLabel6.setText("Enter Subscriber ID");
         panel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, 300, -1));
 
         tfID.setBackground(new java.awt.Color(34, 40, 49));
@@ -122,7 +125,7 @@ public class DeleteFormSub extends javax.swing.JFrame {
         tfID.setForeground(new java.awt.Color(255, 255, 255));
         tfID.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         tfID.setPhColor(new java.awt.Color(255, 255, 255));
-        tfID.setPlaceholder("Enter Book ID...");
+        tfID.setPlaceholder("Enter Subscriber ID...");
         tfID.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 tfIDFocusLost(evt);
@@ -133,8 +136,8 @@ public class DeleteFormSub extends javax.swing.JFrame {
         jLabel7.setBackground(new java.awt.Color(0, 173, 181));
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 173, 181));
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/notebook.png"))); // NOI18N
-        panel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 80, 50));
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/development.png"))); // NOI18N
+        panel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 80, 50));
 
         DeleteBtn.setBackground(new java.awt.Color(57, 62, 70));
         DeleteBtn.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));

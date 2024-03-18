@@ -36,6 +36,7 @@ public class BookManager extends javax.swing.JFrame {
         UpdateBtn = new rojeru_san.complementos.RSButtonHover();
         AddBtn = new rojeru_san.complementos.RSButtonHover();
         DeleteBtn = new rojeru_san.complementos.RSButtonHover();
+        jLabel22 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -198,6 +199,15 @@ public class BookManager extends javax.swing.JFrame {
             }
         });
         jPanel3.add(DeleteBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 660, 240, 70));
+
+        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/refresh.png"))); // NOI18N
+        jLabel22.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel22.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel22MouseClicked(evt);
+            }
+        });
+        jPanel3.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 0, 970, 800));
 
@@ -686,6 +696,12 @@ public class BookManager extends javax.swing.JFrame {
         tfQuantity.setText("");
     }//GEN-LAST:event_jLabel20MouseClicked
 
+    private void jLabel22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel22MouseClicked
+        // TODO add your handling code here:
+        clearTable();
+        setBookDetailsToTable();
+    }//GEN-LAST:event_jLabel22MouseClicked
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -738,6 +754,7 @@ public class BookManager extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;

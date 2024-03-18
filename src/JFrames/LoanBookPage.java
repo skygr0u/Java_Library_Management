@@ -1,12 +1,15 @@
 package JFrames;
 
 import biblio.DatabaseConnection;
+import java.awt.Panel;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Date;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
@@ -49,6 +52,7 @@ public class LoanBookPage extends javax.swing.JFrame {
         jLabel19 = new javax.swing.JLabel();
         date_loan = new rojeru_san.componentes.RSDateChooser();
         date_dueDate = new rojeru_san.componentes.RSDateChooser();
+        jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         Sub_Table = new rojeru_san.complementos.RSTableMetro();
@@ -74,7 +78,7 @@ public class LoanBookPage extends javax.swing.JFrame {
                 jLabel15MouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(1660, 0, 30, 30));
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(1620, 0, 30, 30));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -195,7 +199,6 @@ public class LoanBookPage extends javax.swing.JFrame {
         DeleteBtn.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         DeleteBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/delete.png"))); // NOI18N
         DeleteBtn.setText("Delete Loan");
-        DeleteBtn.setActionCommand("Delete Loan");
         DeleteBtn.setColorHover(new java.awt.Color(255, 211, 105));
         DeleteBtn.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
         DeleteBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -209,7 +212,6 @@ public class LoanBookPage extends javax.swing.JFrame {
         UpdateBtn.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         UpdateBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/updated.png"))); // NOI18N
         UpdateBtn.setText("Update Loan");
-        UpdateBtn.setActionCommand("Update Loan");
         UpdateBtn.setColorHover(new java.awt.Color(255, 211, 105));
         UpdateBtn.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
         UpdateBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -239,6 +241,16 @@ public class LoanBookPage extends javax.swing.JFrame {
         date_dueDate.setColorForeground(new java.awt.Color(0, 0, 0));
         date_dueDate.setPlaceholder("Enter Return Date...");
         jPanel1.add(date_dueDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(1390, 260, 270, -1));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/maximaze.png"))); // NOI18N
+        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1660, 0, 30, 30));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -501,6 +513,10 @@ public class LoanBookPage extends javax.swing.JFrame {
 
     private void AddBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddBtnMouseClicked
         // TODO add your handling code here:
+    }//GEN-LAST:event_AddBtnMouseClicked
+
+    private void AddBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddBtnActionPerformed
+        // TODO add your handling code here:
         int bookId = Integer.parseInt(tfBookID.getText());
         int dispo = getBookDispo(bookId);
 
@@ -511,6 +527,8 @@ public class LoanBookPage extends javax.swing.JFrame {
                 if (issueBook()) {
                     JOptionPane.showMessageDialog(this, "Book issued successfully");
                     updateBookCount();
+                    clearTable();
+                    setBookDetailsToTable();
                 } else {
                     JOptionPane.showMessageDialog(this, "Can't issue the book");
                 }
@@ -518,10 +536,7 @@ public class LoanBookPage extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "This subscriber already has this book");
             }
         }
-    }//GEN-LAST:event_AddBtnMouseClicked
-
-    private void AddBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddBtnActionPerformed
-        // TODO add your handling code here:
+        
         
     }//GEN-LAST:event_AddBtnActionPerformed
 
@@ -539,6 +554,16 @@ public class LoanBookPage extends javax.swing.JFrame {
         homepage.setVisible(true);
         dispose();
     }//GEN-LAST:event_jLabel19MouseClicked
+
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        // TODO add your handling code here:
+        //this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+     
+            // Maximiser la fenêtre sans redimensionner les sous-composants
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        this.revalidate(); // Mettre à jour la disposition des composants
+       
+    }//GEN-LAST:event_jLabel1MouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -580,6 +605,7 @@ public class LoanBookPage extends javax.swing.JFrame {
     private rojeru_san.complementos.RSButtonHover UpdateBtn;
     private rojeru_san.componentes.RSDateChooser date_dueDate;
     private rojeru_san.componentes.RSDateChooser date_loan;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
