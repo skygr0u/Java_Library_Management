@@ -311,7 +311,7 @@ public class BookManager extends javax.swing.JFrame {
         jLabel14.setBackground(new java.awt.Color(0, 173, 181));
         jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(0, 173, 181));
-        jLabel14.setText("Publication Date");
+        jLabel14.setText("Publication Date (YY-MM-DD)");
         jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 490, 300, -1));
 
         jLabel15.setBackground(new java.awt.Color(0, 173, 181));

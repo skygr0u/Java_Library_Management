@@ -552,13 +552,13 @@ public class HomePage extends javax.swing.JFrame {
 
         rSTableMetro1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Last Name", "First Name", "Email"
+                "Last Name", "First Name", "Email", "Book Title"
             }
         ));
         rSTableMetro1.setColorBackgoundHead(new java.awt.Color(57, 62, 70));

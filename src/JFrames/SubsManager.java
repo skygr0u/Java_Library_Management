@@ -14,7 +14,7 @@ public class SubsManager extends javax.swing.JFrame {
 
     public SubsManager() {
         initComponents();
-        setBookDetailsToTable();
+        setSubsDetailsToTable();
     }
 
     String Email, Username, Contact;
@@ -336,7 +336,7 @@ public class SubsManager extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     
     //to set the book details into the table
-    public void setBookDetailsToTable(){
+    public void setSubsDetailsToTable(){
         try {
             java.sql.Connection con = DatabaseConnection.getConnection();
             Statement st = con.createStatement();
@@ -429,7 +429,7 @@ public class SubsManager extends javax.swing.JFrame {
         if (updateSubscriber() == true) {
             JOptionPane.showMessageDialog(this, "Subscriber Updated");
             clearTable();
-            setBookDetailsToTable();
+            setSubsDetailsToTable();
         }else{
             JOptionPane.showMessageDialog(this, "Subscriber Updation Failed", "Error", JOptionPane.ERROR_MESSAGE);
         }
@@ -440,7 +440,7 @@ public class SubsManager extends javax.swing.JFrame {
         DeleteFormSub deleteformsub = new DeleteFormSub();
         deleteformsub.setVisible(true);
         clearTable();
-        setBookDetailsToTable();
+        setSubsDetailsToTable();
     }//GEN-LAST:event_DeleteBtnActionPerformed
 
     private void jLabel20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel20MouseClicked
