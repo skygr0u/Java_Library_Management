@@ -114,7 +114,7 @@ public class LoanBookPage extends javax.swing.JFrame {
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(1300, 240, 80, 70));
 
         jLabel12.setBackground(new java.awt.Color(0, 173, 181));
-        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(0, 173, 181));
         jLabel12.setText("Return Date");
         jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(1390, 220, 300, 40));
@@ -126,7 +126,7 @@ public class LoanBookPage extends javax.swing.JFrame {
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 240, 80, 70));
 
         jLabel10.setBackground(new java.awt.Color(0, 173, 181));
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 173, 181));
         jLabel10.setText("Loan Date");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 220, 300, 40));
@@ -146,7 +146,7 @@ public class LoanBookPage extends javax.swing.JFrame {
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 240, 80, 70));
 
         jLabel8.setBackground(new java.awt.Color(0, 173, 181));
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 173, 181));
         jLabel8.setText("Member ID");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 220, 300, 40));
@@ -171,7 +171,7 @@ public class LoanBookPage extends javax.swing.JFrame {
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, 80, 70));
 
         jLabel13.setBackground(new java.awt.Color(0, 173, 181));
-        jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(0, 173, 181));
         jLabel13.setText("Book ID");
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, 300, 40));

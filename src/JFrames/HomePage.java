@@ -671,6 +671,9 @@ public class HomePage extends javax.swing.JFrame {
 
     private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
         // TODO add your handling code here:
+        ReturnLoanPage returnloanpage = new ReturnLoanPage();
+        returnloanpage.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jLabel12MouseClicked
 
     private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
