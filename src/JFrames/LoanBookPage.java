@@ -47,12 +47,11 @@ public class LoanBookPage extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         AddBtn = new rojeru_san.complementos.RSButtonHover();
-        DeleteBtn = new rojeru_san.complementos.RSButtonHover();
-        UpdateBtn = new rojeru_san.complementos.RSButtonHover();
         jLabel19 = new javax.swing.JLabel();
         date_loan = new rojeru_san.componentes.RSDateChooser();
         date_dueDate = new rojeru_san.componentes.RSDateChooser();
         jLabel1 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         Sub_Table = new rojeru_san.complementos.RSTableMetro();
@@ -105,7 +104,7 @@ public class LoanBookPage extends javax.swing.JFrame {
                 jLabel20MouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 480, 60, 60));
+        jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(1670, 490, 60, 60));
 
         jLabel11.setBackground(new java.awt.Color(0, 173, 181));
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
@@ -193,33 +192,7 @@ public class LoanBookPage extends javax.swing.JFrame {
                 AddBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(AddBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 410, 260, 70));
-
-        DeleteBtn.setBackground(new java.awt.Color(57, 62, 70));
-        DeleteBtn.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        DeleteBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/delete.png"))); // NOI18N
-        DeleteBtn.setText("Delete Loan");
-        DeleteBtn.setColorHover(new java.awt.Color(255, 211, 105));
-        DeleteBtn.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
-        DeleteBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DeleteBtnActionPerformed(evt);
-            }
-        });
-        jPanel1.add(DeleteBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 410, 270, 70));
-
-        UpdateBtn.setBackground(new java.awt.Color(57, 62, 70));
-        UpdateBtn.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        UpdateBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/updated.png"))); // NOI18N
-        UpdateBtn.setText("Update Loan");
-        UpdateBtn.setColorHover(new java.awt.Color(255, 211, 105));
-        UpdateBtn.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
-        UpdateBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UpdateBtnActionPerformed(evt);
-            }
-        });
-        jPanel1.add(UpdateBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 410, 280, 70));
+        jPanel1.add(AddBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 410, 470, 80));
 
         jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/arrow.png"))); // NOI18N
         jLabel19.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -251,6 +224,15 @@ public class LoanBookPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1660, 0, 30, 30));
+
+        jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/refresh.png"))); // NOI18N
+        jLabel23.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel23.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel23MouseClicked(evt);
+            }
+        });
+        jPanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 480, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -426,6 +408,47 @@ public class LoanBookPage extends javax.swing.JFrame {
         }
     }
     
+    private int getBookQuantity(int bookId) throws Exception {
+        int quantity = 0;
+        java.sql.Connection con = DatabaseConnection.getConnection();
+        String query = "SELECT quantite FROM livres WHERE idLivre = ?";
+        try (PreparedStatement statement = con.prepareStatement(query)) {
+            statement.setInt(1, bookId);
+            try (java.sql.ResultSet resultSet = statement.executeQuery()) {
+                if (resultSet.next()) {
+                    quantity = resultSet.getInt("quantite");
+                }
+            }
+        }
+        return quantity;
+    }
+    
+    public void updateBookDispo(int bookId) {
+        java.sql.Connection con = DatabaseConnection.getConnection();
+        try {
+            // Get the current quantity of the book
+            int quantity = getBookQuantity(bookId);
+            
+            // Update disponibilite based on quantity
+            int disponibilite = (quantity > 0) ? 1 : 0;
+            
+            String query = "UPDATE livres SET disponibilite = ? WHERE idLivre = ?";
+            try (PreparedStatement statement = con.prepareStatement(query)) {
+                statement.setInt(1, disponibilite);
+                statement.setInt(2, bookId);
+                statement.executeUpdate();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                con.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    
     //checking whether book already allocated or not
     public boolean isAlreadyIssued() {
 
@@ -474,6 +497,100 @@ public class LoanBookPage extends javax.swing.JFrame {
 
         return dispo;
     }
+    
+    //to update book details
+    /*public boolean updateBook(){
+        boolean isUpdated = false;
+        int bookID = Integer.parseInt(tfID.getText());
+        String bookTitle = tfTitle.getText();
+        String author = tfAuthor.getText();
+        int authorID = getAuthorId(author);
+        String ISBN = tfISBN.getText();
+        String PublicationDate = tfDate.getText();
+        int dispo = Integer.parseInt(tfAvailability.getText());
+        int quantity = Integer.parseInt(tfQuantity.getText()); 
+        
+        try {
+            java.sql.Connection con = DatabaseConnection.getConnection();
+            String sql = "update livres set titre = ?,idauteur = ?,isbn = ?, datepublication = ?, disponibilite = ?, quantite = ? where idlivre = ?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1, bookTitle);
+            pst.setInt(2, authorID);
+            pst.setString(3, ISBN);
+            pst.setString(4, PublicationDate);
+            pst.setInt(5, dispo);
+            pst.setInt(6, quantity);
+            pst.setInt(7, bookID);
+            
+            int rowCount = pst.executeUpdate();
+            if (rowCount > 0) {
+                isUpdated = true;
+            }else{
+                isUpdated = false;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return isUpdated;
+    }
+    
+
+     public int getLoanID(int bookId, int SubId) {
+        int LoanId = -1;
+
+        java.sql.Connection con = DatabaseConnection.getConnection();
+        try {
+            String query = "SELECT idEmprunt FROM emprunts WHERE idLivre = ? AND idAbonné = ?";
+            try (PreparedStatement statement = con.prepareStatement(query)) {
+                statement.setInt(1, bookId);
+                statement.setInt(2, SubId);
+                try (ResultSet resultSet = statement.executeQuery()) {
+                    if (resultSet.next()) {
+                        LoanId = resultSet.getInt("idEmprunt");
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                con.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        return LoanId;
+    }
+
+    
+    //Delete book detail
+    public boolean deleteLoan(){
+        boolean isDeleted = false;
+        
+        int bookId = Integer.parseInt(tfBookID.getText());
+        int SubsId = Integer.parseInt(tfSubscriber.getText());
+        int LoanID = getLoanID(bookId, SubsId);
+        
+        try {
+            java.sql.Connection con = DatabaseConnection.getConnection();
+            String sql = "delete from emprunts where idemprunt = ? ";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setInt(1, LoanID);
+            
+            int rowCount = pst.executeUpdate();
+            if (rowCount > 0) {
+                isDeleted = true;
+            }else{
+                isDeleted = false;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return isDeleted;
+    }
+    */
     
     private void jLabel15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseClicked
         // TODO add your handling code here:
@@ -527,6 +644,7 @@ public class LoanBookPage extends javax.swing.JFrame {
                 if (issueBook()) {
                     JOptionPane.showMessageDialog(this, "Book issued successfully");
                     updateBookCount();
+                    updateBookDispo(bookId);
                     clearTable();
                     setBookDetailsToTable();
                 } else {
@@ -539,14 +657,6 @@ public class LoanBookPage extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_AddBtnActionPerformed
-
-    private void DeleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteBtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_DeleteBtnActionPerformed
-
-    private void UpdateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateBtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_UpdateBtnActionPerformed
 
     private void jLabel19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseClicked
         // TODO add your handling code here:
@@ -564,6 +674,13 @@ public class LoanBookPage extends javax.swing.JFrame {
         this.revalidate(); // Mettre à jour la disposition des composants
        
     }//GEN-LAST:event_jLabel1MouseClicked
+
+    private void jLabel23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel23MouseClicked
+        // TODO add your handling code here:
+        clearTable();
+        setBookDetailsToTable();
+        setSubsDetailsToTable();
+    }//GEN-LAST:event_jLabel23MouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -600,9 +717,7 @@ public class LoanBookPage extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private rojeru_san.complementos.RSButtonHover AddBtn;
     private rojeru_san.complementos.RSTableMetro Book_Table;
-    private rojeru_san.complementos.RSButtonHover DeleteBtn;
     private rojeru_san.complementos.RSTableMetro Sub_Table;
-    private rojeru_san.complementos.RSButtonHover UpdateBtn;
     private rojeru_san.componentes.RSDateChooser date_dueDate;
     private rojeru_san.componentes.RSDateChooser date_loan;
     private javax.swing.JLabel jLabel1;
@@ -614,6 +729,7 @@ public class LoanBookPage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;

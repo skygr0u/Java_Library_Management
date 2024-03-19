@@ -1,5 +1,7 @@
 package JFrames;
 
+import biblio.DatabaseConnection;
+import com.mysql.cj.xdevapi.Statement;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
@@ -7,6 +9,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.LayoutManager;
 import java.awt.RenderingHints;
+import java.sql.ResultSet;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -20,8 +23,11 @@ public class HomePage extends javax.swing.JFrame {
     
     public HomePage() {
         initComponents();
+        setSubsDetailsToTable();
+        setAuthorDetailsToTable();
     }
     
+    String Email, Username, Contact;
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -91,14 +97,20 @@ public class HomePage extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         jLabel42 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        rSTableMetro1 = new rojeru_san.complementos.RSTableMetro();
+        Author_Table = new rojeru_san.complementos.RSTableMetro();
         jScrollPane2 = new javax.swing.JScrollPane();
-        rSTableMetro2 = new rojeru_san.complementos.RSTableMetro();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        rSTableMetro3 = new rojeru_san.complementos.RSTableMetro();
-        jLabel17 = new javax.swing.JLabel();
+        Sub_Table = new rojeru_san.complementos.RSTableMetro();
         jLabel18 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel43 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
+        jLabel44 = new javax.swing.JLabel();
+        jLabel45 = new javax.swing.JLabel();
+        jLabel47 = new javax.swing.JLabel();
+        jLabel46 = new javax.swing.JLabel();
+        jPanel8 = new javax.swing.JPanel();
+        jLabel17 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -347,6 +359,7 @@ public class HomePage extends javax.swing.JFrame {
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 1000));
 
         jPanel2.setBackground(new java.awt.Color(238, 238, 238));
+        jPanel2.setPreferredSize(new java.awt.Dimension(1370, 1010));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel4.setBackground(new java.awt.Color(34, 40, 49));
@@ -363,7 +376,7 @@ public class HomePage extends javax.swing.JFrame {
                 jLabel5MouseClicked(evt);
             }
         });
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 0, 40, 29));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1290, 0, 40, 29));
 
         jLabel15.setBackground(new java.awt.Color(238, 238, 238));
         jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 55)); // NOI18N
@@ -375,7 +388,7 @@ public class HomePage extends javax.swing.JFrame {
                 jLabel15MouseClicked(evt);
             }
         });
-        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, -10, 30, 50));
+        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(1260, -10, 30, 50));
 
         jPanel15.setBackground(new java.awt.Color(57, 62, 70));
         jPanel15.setBorder(javax.swing.BorderFactory.createMatteBorder(15, 0, 15, 0, new java.awt.Color(0, 173, 181)));
@@ -392,6 +405,7 @@ public class HomePage extends javax.swing.JFrame {
         jLabel24.setFont(new java.awt.Font("Segoe Pro", 2, 20)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(255, 255, 255));
         jLabel24.setText("Subscribers");
+        jLabel24.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
         jPanel15.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/follow.png"))); // NOI18N
@@ -404,6 +418,7 @@ public class HomePage extends javax.swing.JFrame {
         jLabel41.setFont(new java.awt.Font("Segoe Pro", 2, 20)); // NOI18N
         jLabel41.setForeground(new java.awt.Color(255, 255, 255));
         jLabel41.setText("Number Of ");
+        jLabel41.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
         jPanel15.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
 
         jPanel2.add(jPanel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, 210, 210));
@@ -423,7 +438,8 @@ public class HomePage extends javax.swing.JFrame {
         jLabel26.setFont(new java.awt.Font("Segoe Pro", 2, 20)); // NOI18N
         jLabel26.setForeground(new java.awt.Color(255, 255, 255));
         jLabel26.setText("Number Of Authors");
-        jPanel19.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 180, -1));
+        jLabel26.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
+        jPanel19.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
 
         jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/writer.png"))); // NOI18N
         jPanel19.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
@@ -479,7 +495,8 @@ public class HomePage extends javax.swing.JFrame {
         jLabel40.setFont(new java.awt.Font("Segoe Pro", 2, 20)); // NOI18N
         jLabel40.setForeground(new java.awt.Color(255, 255, 255));
         jLabel40.setText("Number Of Books");
-        jPanel21.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 170, -1));
+        jLabel40.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
+        jPanel21.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 160, -1));
 
         jPanel2.add(jPanel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 210, 210));
 
@@ -498,6 +515,7 @@ public class HomePage extends javax.swing.JFrame {
         jLabel33.setFont(new java.awt.Font("Segoe Pro", 2, 20)); // NOI18N
         jLabel33.setForeground(new java.awt.Color(255, 255, 255));
         jLabel33.setText("Number Of ");
+        jLabel33.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
         jPanel22.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 110, -1));
 
         jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/hand-over.png"))); // NOI18N
@@ -535,6 +553,7 @@ public class HomePage extends javax.swing.JFrame {
         jLabel39.setFont(new java.awt.Font("Segoe Pro", 2, 20)); // NOI18N
         jLabel39.setForeground(new java.awt.Color(255, 255, 255));
         jLabel39.setText("loaned books");
+        jLabel39.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
         jPanel22.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, -1, -1));
 
         jPanel2.add(jPanel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 750, 210, 210));
@@ -550,81 +569,138 @@ public class HomePage extends javax.swing.JFrame {
 
         jPanel2.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 0, 360, 50));
 
-        rSTableMetro1.setModel(new javax.swing.table.DefaultTableModel(
+        Author_Table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Last Name", "First Name", "Email", "Book Title"
             }
         ));
-        rSTableMetro1.setColorBackgoundHead(new java.awt.Color(57, 62, 70));
-        rSTableMetro1.setRowHeight(40);
-        jScrollPane1.setViewportView(rSTableMetro1);
+        Author_Table.setColorBackgoundHead(new java.awt.Color(57, 62, 70));
+        Author_Table.setColorFilasForeground1(new java.awt.Color(57, 62, 70));
+        Author_Table.setColorFilasForeground2(new java.awt.Color(57, 62, 70));
+        Author_Table.setColorSelBackgound(new java.awt.Color(57, 62, 70));
+        Author_Table.setRowHeight(40);
+        jScrollPane1.setViewportView(Author_Table);
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 730, 830, 220));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 380, 990, 260));
 
-        rSTableMetro2.setModel(new javax.swing.table.DefaultTableModel(
+        Sub_Table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "Name", "Email Adresse", "Contact"
             }
         ));
-        rSTableMetro2.setColorBackgoundHead(new java.awt.Color(57, 62, 70));
-        rSTableMetro2.setRowHeight(40);
-        jScrollPane2.setViewportView(rSTableMetro2);
-        if (rSTableMetro2.getColumnModel().getColumnCount() > 0) {
-            rSTableMetro2.getColumnModel().getColumn(1).setResizable(false);
+        Sub_Table.setColorBackgoundHead(new java.awt.Color(57, 62, 70));
+        Sub_Table.setColorFilasForeground1(new java.awt.Color(57, 62, 70));
+        Sub_Table.setColorFilasForeground2(new java.awt.Color(57, 62, 70));
+        Sub_Table.setColorSelBackgound(new java.awt.Color(57, 62, 70));
+        Sub_Table.setRowHeight(40);
+        jScrollPane2.setViewportView(Sub_Table);
+        if (Sub_Table.getColumnModel().getColumnCount() > 0) {
+            Sub_Table.getColumnModel().getColumn(1).setResizable(false);
         }
 
-        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 160, 830, 220));
-
-        rSTableMetro3.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title", "ISBN", "Publication Date", "Availability"
-            }
-        ));
-        rSTableMetro3.setColorBackgoundHead(new java.awt.Color(57, 62, 70));
-        rSTableMetro3.setRowHeight(40);
-        jScrollPane3.setViewportView(rSTableMetro3);
-
-        jPanel2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 440, 830, 220));
-
-        jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(34, 40, 49));
-        jLabel17.setText("Authors's Details :");
-        jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 680, 340, -1));
+        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 110, 990, 210));
 
         jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(34, 40, 49));
         jLabel18.setText("Subscriber's Details :");
-        jPanel2.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 110, 340, -1));
+        jLabel18.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 4, 0, new java.awt.Color(0, 0, 0)));
+        jPanel2.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 60, 240, -1));
 
-        jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(34, 40, 49));
-        jLabel20.setText("Book Details :");
-        jPanel2.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 390, 340, -1));
+        jLabel21.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(34, 40, 49));
+        jLabel21.setText("Authors's Details :");
+        jLabel21.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 4, 0, new java.awt.Color(0, 0, 0)));
+        jPanel2.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 330, 210, -1));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 0, 1300, 1000));
+        jPanel7.setBackground(new java.awt.Color(34, 40, 49));
+        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        setSize(new java.awt.Dimension(1730, 1000));
+        jLabel43.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BooksCover/ToKillAMokinbird.jpg"))); // NOI18N
+        jPanel7.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, 240));
+
+        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BooksCover/PrideAndPrejudice.jpg"))); // NOI18N
+        jPanel7.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, 150, 240));
+
+        jLabel44.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BooksCover/TheGreatGatsby.jpg"))); // NOI18N
+        jPanel7.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 10, -1, -1));
+
+        jLabel45.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BooksCover/1984.jpg"))); // NOI18N
+        jPanel7.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, -1, -1));
+
+        jLabel47.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BooksCover/LordOfTheRings.jpg"))); // NOI18N
+        jPanel7.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 10, -1, -1));
+
+        jLabel46.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BooksCover/HarryPotter.jpg"))); // NOI18N
+        jPanel7.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 10, -1, -1));
+
+        jPanel2.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 720, 990, 260));
+
+        jPanel8.setBackground(new java.awt.Color(57, 62, 70));
+        jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 28)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel17.setText("Most Popular Books :");
+        jLabel17.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 4, 0, new java.awt.Color(255, 255, 255)));
+        jPanel8.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 300, -1));
+
+        jPanel2.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 660, 990, 60));
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 0, 1330, 1000));
+
+        setSize(new java.awt.Dimension(1770, 1000));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    public void setSubsDetailsToTable(){
+        try {
+            java.sql.Connection con = DatabaseConnection.getConnection();
+            java.sql.Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("select username, email, contact from abonnés");
+            
+            while(rs.next()){
+                String Username = rs.getString("username");
+                String Email = rs.getString("email");
+                String Contact = rs.getString("contact");
+
+                Object[] obj = {Username,Email,Contact};
+                model =(DefaultTableModel) Sub_Table.getModel();
+                model.addRow(obj);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } 
+    }
+    
+    public void setAuthorDetailsToTable(){
+        
+        try {
+            java.sql.Connection con = DatabaseConnection.getConnection();
+            java.sql.Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("select a.nom, a.prenom, a.email, l.titre from auteurs a join livres l on (a.idauteur = l.idauteur)");
+            
+            while(rs.next()){
+                String LastName = rs.getString("nom");
+                String FirstName = rs.getString("prenom");
+                String Email = rs.getString("email");
+                String BookTitle = rs.getString("titre");
+
+                Object[] obj = {LastName,FirstName,Email,BookTitle};
+                model =(DefaultTableModel) Author_Table.getModel();
+                model.addRow(obj);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+    }
+    
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
         System.exit(0);
     }//GEN-LAST:event_jLabel5MouseClicked
@@ -678,6 +754,9 @@ public class HomePage extends javax.swing.JFrame {
 
     private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
         // TODO add your handling code here:
+        ViewRecordsPage viewrecordspage = new ViewRecordsPage();
+        viewrecordspage.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jLabel13MouseClicked
 
     private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
@@ -801,6 +880,8 @@ public class HomePage extends javax.swing.JFrame {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private rojeru_san.complementos.RSTableMetro Author_Table;
+    private rojeru_san.complementos.RSTableMetro Sub_Table;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -814,6 +895,7 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
@@ -837,6 +919,11 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
+    private javax.swing.JLabel jLabel46;
+    private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -854,9 +941,10 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel lbl_nofOfBooks;
     private javax.swing.JLabel lbl_nofOfBooks2;
     private javax.swing.JLabel lbl_nofOfBooks3;
@@ -871,9 +959,6 @@ public class HomePage extends javax.swing.JFrame {
     private java.awt.Panel panel6;
     private java.awt.Panel panel7;
     private java.awt.Panel panel8;
-    private rojeru_san.complementos.RSTableMetro rSTableMetro1;
-    private rojeru_san.complementos.RSTableMetro rSTableMetro2;
-    private rojeru_san.complementos.RSTableMetro rSTableMetro3;
     // End of variables declaration//GEN-END:variables
 
 }
