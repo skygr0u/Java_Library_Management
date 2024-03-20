@@ -331,7 +331,7 @@ public class ManageLoansPage extends javax.swing.JFrame {
         jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 21)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(255, 211, 105));
         jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/research-center.png"))); // NOI18N
-        jLabel16.setText("  View Loaned Books");
+        jLabel16.setText("  View Pending Books");
         jLabel16.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel16.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
