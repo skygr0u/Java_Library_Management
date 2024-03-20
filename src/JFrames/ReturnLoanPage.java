@@ -72,7 +72,7 @@ public class ReturnLoanPage extends javax.swing.JFrame {
                 jLabel15MouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 10, 30, 30));
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(1440, 0, 30, 30));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -84,13 +84,13 @@ public class ReturnLoanPage extends javax.swing.JFrame {
                 jLabel5MouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1320, 10, 40, 29));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1510, 0, 40, 29));
 
         jLabel22.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(255, 255, 255));
         jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/ReturnBook.png"))); // NOI18N
         jLabel22.setText("   Return Book");
-        jPanel1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 20, 490, 130));
+        jPanel1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 0, 490, 130));
 
         jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/clear.png"))); // NOI18N
         jLabel20.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -99,7 +99,7 @@ public class ReturnLoanPage extends javax.swing.JFrame {
                 jLabel20MouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(1300, 490, 60, 60));
+        jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(1490, 370, 60, 60));
 
         tfSubscriberid.setBackground(new java.awt.Color(34, 40, 49));
         tfSubscriberid.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
@@ -107,19 +107,19 @@ public class ReturnLoanPage extends javax.swing.JFrame {
         tfSubscriberid.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         tfSubscriberid.setPhColor(new java.awt.Color(255, 255, 255));
         tfSubscriberid.setPlaceholder("Enter Subsciber ID...");
-        jPanel1.add(tfSubscriberid, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 210, 290, 50));
+        jPanel1.add(tfSubscriberid, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 190, 290, 50));
 
         jLabel7.setBackground(new java.awt.Color(0, 173, 181));
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 173, 181));
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/pass.png"))); // NOI18N
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 200, 80, 70));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 180, 80, 70));
 
         jLabel8.setBackground(new java.awt.Color(0, 173, 181));
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 173, 181));
         jLabel8.setText("Member ID");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 180, 300, 40));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 160, 300, 40));
 
         tfBookID.setBackground(new java.awt.Color(34, 40, 49));
         tfBookID.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
@@ -132,19 +132,19 @@ public class ReturnLoanPage extends javax.swing.JFrame {
                 tfBookIDFocusLost(evt);
             }
         });
-        jPanel1.add(tfBookID, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 210, 290, 50));
+        jPanel1.add(tfBookID, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 190, 290, 50));
 
         jLabel6.setBackground(new java.awt.Color(0, 173, 181));
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 173, 181));
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/notebook.png"))); // NOI18N
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 330, 80, 70));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 310, 80, 70));
 
         jLabel13.setBackground(new java.awt.Color(0, 173, 181));
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(0, 173, 181));
         jLabel13.setText("Book ID");
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 180, 300, 40));
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 160, 300, 40));
 
         AddBtn.setBackground(new java.awt.Color(57, 62, 70));
         AddBtn.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -163,7 +163,7 @@ public class ReturnLoanPage extends javax.swing.JFrame {
                 AddBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(AddBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 450, 320, 70));
+        jPanel1.add(AddBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 250, 300, 70));
 
         jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/arrow.png"))); // NOI18N
         jLabel19.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -182,7 +182,7 @@ public class ReturnLoanPage extends javax.swing.JFrame {
                 jLabel1MouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1290, 10, 30, 30));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1480, 0, 30, 30));
 
         jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/refresh.png"))); // NOI18N
         jLabel23.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -191,7 +191,7 @@ public class ReturnLoanPage extends javax.swing.JFrame {
                 jLabel23MouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 480, -1, -1));
+        jPanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, -1, -1));
 
         tfBookTitle.setBackground(new java.awt.Color(34, 40, 49));
         tfBookTitle.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
@@ -203,40 +203,40 @@ public class ReturnLoanPage extends javax.swing.JFrame {
                 tfBookTitleFocusLost(evt);
             }
         });
-        jPanel1.add(tfBookTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 340, 290, 50));
+        jPanel1.add(tfBookTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 320, 290, 50));
 
         jLabel14.setBackground(new java.awt.Color(0, 173, 181));
         jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(0, 173, 181));
         jLabel14.setText("Book Title");
-        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 310, 300, 40));
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 290, 300, 40));
 
         jLabel9.setBackground(new java.awt.Color(0, 173, 181));
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 173, 181));
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/accounting-book.png"))); // NOI18N
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 200, 80, 70));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, 80, 70));
 
         tfSubscribernName.setBackground(new java.awt.Color(34, 40, 49));
         tfSubscribernName.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
         tfSubscribernName.setForeground(new java.awt.Color(255, 255, 255));
         tfSubscribernName.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         tfSubscribernName.setPhColor(new java.awt.Color(255, 255, 255));
-        jPanel1.add(tfSubscribernName, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 340, 290, 50));
+        jPanel1.add(tfSubscribernName, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 320, 290, 50));
 
         jLabel10.setBackground(new java.awt.Color(0, 173, 181));
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 173, 181));
         jLabel10.setText("Member Name");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 310, 300, 40));
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 290, 300, 40));
 
         jLabel11.setBackground(new java.awt.Color(0, 173, 181));
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 173, 181));
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/id-card.png"))); // NOI18N
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 330, 80, 70));
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 310, 80, 70));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1360, -1));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1550, 430));
 
         jPanel2.setBackground(new java.awt.Color(238, 238, 238));
         jPanel2.setPreferredSize(new java.awt.Dimension(1730, 450));
@@ -263,11 +263,11 @@ public class ReturnLoanPage extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(Loan_Table);
 
-        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1360, 450));
+        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1550, 400));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 550, 1360, -1));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 430, 1550, 400));
 
-        setSize(new java.awt.Dimension(1358, 1000));
+        setSize(new java.awt.Dimension(1550, 825));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     

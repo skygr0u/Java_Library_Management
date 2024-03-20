@@ -1,6 +1,7 @@
 package JFrames;
 
 import biblio.DatabaseConnection;
+import java.awt.Color;
 import java.awt.Panel;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -15,7 +16,9 @@ import javax.swing.table.TableModel;
 
 
 public class ManageLoansPage extends javax.swing.JFrame {
-
+    
+    Color mouseEnterColor = new Color(57,62,70);
+    Color mouseExitColor = new Color(34,40,49);
 
     public ManageLoansPage() {
         initComponents();
@@ -54,6 +57,12 @@ public class ManageLoansPage extends javax.swing.JFrame {
         tfstatus = new app.bolivia.swing.JCTextField();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
+        panel10 = new java.awt.Panel();
+        jLabel49 = new javax.swing.JLabel();
+        panel11 = new java.awt.Panel();
+        jLabel50 = new javax.swing.JLabel();
+        panel7 = new java.awt.Panel();
+        jLabel16 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         Loan_Table = new rojeru_san.complementos.RSTableMetro();
@@ -77,7 +86,7 @@ public class ManageLoansPage extends javax.swing.JFrame {
                 jLabel15MouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 10, 30, 30));
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(1440, 0, 30, 30));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -89,13 +98,13 @@ public class ManageLoansPage extends javax.swing.JFrame {
                 jLabel5MouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1320, 10, 40, 29));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1510, 0, 40, 29));
 
         jLabel22.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(255, 255, 255));
         jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/ReturnBook.png"))); // NOI18N
         jLabel22.setText("  Loan Records");
-        jPanel1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 0, 480, 130));
+        jPanel1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 0, 480, 130));
 
         jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/clear.png"))); // NOI18N
         jLabel20.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -104,7 +113,7 @@ public class ManageLoansPage extends javax.swing.JFrame {
                 jLabel20MouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(1300, 490, 60, 60));
+        jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(1490, 410, 60, 60));
 
         Delete.setBackground(new java.awt.Color(57, 62, 70));
         Delete.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -123,7 +132,7 @@ public class ManageLoansPage extends javax.swing.JFrame {
                 DeleteActionPerformed(evt);
             }
         });
-        jPanel1.add(Delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 450, 310, 70));
+        jPanel1.add(Delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 390, 310, 70));
 
         jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/arrow.png"))); // NOI18N
         jLabel19.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -132,7 +141,7 @@ public class ManageLoansPage extends javax.swing.JFrame {
                 jLabel19MouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+        jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 420, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/maximaze.png"))); // NOI18N
@@ -142,7 +151,7 @@ public class ManageLoansPage extends javax.swing.JFrame {
                 jLabel1MouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1290, 10, 30, 30));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1480, 0, 30, 30));
 
         jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/refresh.png"))); // NOI18N
         jLabel23.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -151,16 +160,16 @@ public class ManageLoansPage extends javax.swing.JFrame {
                 jLabel23MouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 480, -1, -1));
+        jPanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(1420, 410, -1, -1));
 
         jPanel3.setBackground(new java.awt.Color(57, 62, 70));
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 140, 500, 10));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 130, 500, 10));
 
         jPanel4.setBackground(new java.awt.Color(57, 62, 70));
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 0, -1, 150));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 0, -1, 140));
 
         jPanel5.setBackground(new java.awt.Color(57, 62, 70));
-        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 0, -1, 150));
+        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 0, -1, 140));
 
         tfLoanID.setBackground(new java.awt.Color(34, 40, 49));
         tfLoanID.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
@@ -168,55 +177,55 @@ public class ManageLoansPage extends javax.swing.JFrame {
         tfLoanID.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         tfLoanID.setPhColor(new java.awt.Color(255, 255, 255));
         tfLoanID.setPlaceholder("Enter Loan ID...");
-        jPanel1.add(tfLoanID, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, 290, 50));
+        jPanel1.add(tfLoanID, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 190, 290, 50));
 
         jLabel7.setBackground(new java.awt.Color(0, 173, 181));
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 173, 181));
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/internet.png"))); // NOI18N
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, 80, 70));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, 80, 70));
 
         jLabel8.setBackground(new java.awt.Color(0, 173, 181));
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 173, 181));
         jLabel8.setText("Loan ID");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, 300, 40));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 160, 300, 40));
 
         jLabel9.setBackground(new java.awt.Color(0, 173, 181));
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 173, 181));
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/loan_date.png"))); // NOI18N
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 220, 80, 70));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 180, 80, 70));
 
         date_loan.setColorBackground(new java.awt.Color(57, 62, 70));
         date_loan.setColorButtonHover(new java.awt.Color(255, 211, 105));
         date_loan.setColorForeground(new java.awt.Color(0, 0, 0));
         date_loan.setPlaceholder("Enter Load Date...");
-        jPanel1.add(date_loan, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 240, 270, -1));
+        jPanel1.add(date_loan, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 200, 270, -1));
 
         jLabel10.setBackground(new java.awt.Color(0, 173, 181));
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 173, 181));
         jLabel10.setText("Loan Date");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 200, 300, 40));
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 160, 300, 40));
 
         jLabel11.setBackground(new java.awt.Color(0, 173, 181));
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 173, 181));
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/return-to-the-past.png"))); // NOI18N
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 220, 80, 70));
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 180, 80, 70));
 
         date_dueDate.setColorBackground(new java.awt.Color(57, 62, 70));
         date_dueDate.setColorButtonHover(new java.awt.Color(255, 211, 105));
         date_dueDate.setColorForeground(new java.awt.Color(0, 0, 0));
         date_dueDate.setPlaceholder("Enter Return Date...");
-        jPanel1.add(date_dueDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 240, 270, -1));
+        jPanel1.add(date_dueDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 200, 270, -1));
 
         jLabel12.setBackground(new java.awt.Color(0, 173, 181));
         jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(0, 173, 181));
         jLabel12.setText("Return Date");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 200, 300, 40));
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 160, 300, 40));
 
         UpdateBtn.setBackground(new java.awt.Color(57, 62, 70));
         UpdateBtn.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -248,7 +257,7 @@ public class ManageLoansPage extends javax.swing.JFrame {
                 UPDATEActionPerformed(evt);
             }
         });
-        jPanel1.add(UPDATE, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 450, 310, 70));
+        jPanel1.add(UPDATE, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 390, 310, 70));
 
         tfstatus.setBackground(new java.awt.Color(34, 40, 49));
         tfstatus.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
@@ -256,21 +265,90 @@ public class ManageLoansPage extends javax.swing.JFrame {
         tfstatus.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         tfstatus.setPhColor(new java.awt.Color(255, 255, 255));
         tfstatus.setPlaceholder("Enter Status ID...");
-        jPanel1.add(tfstatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 350, 290, 50));
+        jPanel1.add(tfstatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 310, 290, 50));
 
         jLabel13.setBackground(new java.awt.Color(0, 173, 181));
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(0, 173, 181));
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/clipboard.png"))); // NOI18N
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 340, 80, 70));
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 300, 80, 70));
 
         jLabel14.setBackground(new java.awt.Color(0, 173, 181));
         jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(0, 173, 181));
         jLabel14.setText("Status");
-        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 320, 300, 40));
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 280, 300, 40));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1360, -1));
+        panel10.setBackground(new java.awt.Color(34, 40, 49));
+        panel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel49.setFont(new java.awt.Font("Segoe UI", 0, 21)); // NOI18N
+        jLabel49.setForeground(new java.awt.Color(255, 211, 105));
+        jLabel49.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/check-list.png"))); // NOI18N
+        jLabel49.setText("  Library Status");
+        jLabel49.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel49.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel49MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel49MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel49MouseExited(evt);
+            }
+        });
+        panel10.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 280, -1));
+
+        panel11.setBackground(new java.awt.Color(34, 40, 49));
+        panel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel50.setFont(new java.awt.Font("Segoe UI", 0, 21)); // NOI18N
+        jLabel50.setForeground(new java.awt.Color(255, 211, 105));
+        jLabel50.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/check-list.png"))); // NOI18N
+        jLabel50.setText("  Library Status");
+        jLabel50.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel50.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel50MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel50MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel50MouseExited(evt);
+            }
+        });
+        panel11.add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 370, -1));
+
+        panel10.add(panel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 970, 440, 70));
+
+        jPanel1.add(panel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 300, 70));
+
+        panel7.setBackground(new java.awt.Color(34, 40, 49));
+        panel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 21)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(255, 211, 105));
+        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/research-center.png"))); // NOI18N
+        jLabel16.setText("  View Loaned Books");
+        jLabel16.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel16.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel16MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel16MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel16MouseExited(evt);
+            }
+        });
+        panel7.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 280, -1));
+
+        jPanel1.add(panel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1550, 480));
 
         jPanel2.setBackground(new java.awt.Color(238, 238, 238));
         jPanel2.setPreferredSize(new java.awt.Dimension(1730, 450));
@@ -297,11 +375,11 @@ public class ManageLoansPage extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(Loan_Table);
 
-        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1360, 450));
+        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1550, 350));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 550, 1360, -1));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 480, 1550, 350));
 
-        setSize(new java.awt.Dimension(1358, 1000));
+        setSize(new java.awt.Dimension(1550, 825));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     
@@ -455,6 +533,49 @@ public class ManageLoansPage extends javax.swing.JFrame {
     private void DeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DeleteMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_DeleteMouseClicked
+
+    private void jLabel49MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel49MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel49MouseClicked
+
+    private void jLabel49MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel49MouseEntered
+        // TODO add your handling code here:
+        panel10.setBackground(mouseEnterColor);
+    }//GEN-LAST:event_jLabel49MouseEntered
+
+    private void jLabel49MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel49MouseExited
+        // TODO add your handling code here:
+        panel10.setBackground(mouseExitColor);
+    }//GEN-LAST:event_jLabel49MouseExited
+
+    private void jLabel50MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel50MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel50MouseClicked
+
+    private void jLabel50MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel50MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel50MouseEntered
+
+    private void jLabel50MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel50MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel50MouseExited
+
+    private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
+        // TODO add your handling code here:
+        LoanedBooksPage loanedbookspage = new LoanedBooksPage();
+        loanedbookspage.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jLabel16MouseClicked
+
+    private void jLabel16MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseEntered
+        // TODO add your handling code here:
+        panel7.setBackground(mouseEnterColor);
+    }//GEN-LAST:event_jLabel16MouseEntered
+
+    private void jLabel16MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseExited
+        // TODO add your handling code here:
+        panel7.setBackground(mouseExitColor);
+    }//GEN-LAST:event_jLabel16MouseExited
     
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -497,7 +618,6 @@ public class ManageLoansPage extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private rojeru_san.complementos.RSButtonHover Delete;
-    private rojeru_san.complementos.RSButtonHover DeleteBtn;
     private rojeru_san.complementos.RSTableMetro Loan_Table;
     private rojeru_san.complementos.RSButtonHover UPDATE;
     private rojeru_san.complementos.RSButtonHover UpdateBtn;
@@ -510,11 +630,14 @@ public class ManageLoansPage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -524,6 +647,9 @@ public class ManageLoansPage extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane2;
+    private java.awt.Panel panel10;
+    private java.awt.Panel panel11;
+    private java.awt.Panel panel7;
     private app.bolivia.swing.JCTextField tfLoanID;
     private app.bolivia.swing.JCTextField tfstatus;
     // End of variables declaration//GEN-END:variables

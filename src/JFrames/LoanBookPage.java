@@ -77,7 +77,7 @@ public class LoanBookPage extends javax.swing.JFrame {
                 jLabel15MouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(1620, 0, 30, 30));
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(1440, 0, 30, 30));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -89,13 +89,13 @@ public class LoanBookPage extends javax.swing.JFrame {
                 jLabel5MouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1690, 0, 40, 29));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1510, 0, 40, 29));
 
         jLabel22.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(255, 255, 255));
         jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/education-cost.png"))); // NOI18N
         jLabel22.setText("   Loan Book");
-        jPanel1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 10, 420, 130));
+        jPanel1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 10, 420, 120));
 
         jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/clear.png"))); // NOI18N
         jLabel20.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -104,31 +104,31 @@ public class LoanBookPage extends javax.swing.JFrame {
                 jLabel20MouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(1670, 490, 60, 60));
+        jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(1490, 380, 50, 60));
 
         jLabel11.setBackground(new java.awt.Color(0, 173, 181));
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 173, 181));
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/return-to-the-past.png"))); // NOI18N
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(1300, 240, 80, 70));
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 300, 80, 70));
 
         jLabel12.setBackground(new java.awt.Color(0, 173, 181));
         jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(0, 173, 181));
         jLabel12.setText("Return Date");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(1390, 220, 300, 40));
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 280, 300, 40));
 
         jLabel9.setBackground(new java.awt.Color(0, 173, 181));
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 173, 181));
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/loan_date.png"))); // NOI18N
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 240, 80, 70));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 300, 80, 70));
 
         jLabel10.setBackground(new java.awt.Color(0, 173, 181));
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 173, 181));
         jLabel10.setText("Loan Date");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 220, 300, 40));
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, 300, 40));
 
         tfSubscriber.setBackground(new java.awt.Color(34, 40, 49));
         tfSubscriber.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
@@ -136,19 +136,19 @@ public class LoanBookPage extends javax.swing.JFrame {
         tfSubscriber.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         tfSubscriber.setPhColor(new java.awt.Color(255, 255, 255));
         tfSubscriber.setPlaceholder("Enter Subsciber ID...");
-        jPanel1.add(tfSubscriber, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 250, 290, 50));
+        jPanel1.add(tfSubscriber, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 210, 290, 50));
 
         jLabel7.setBackground(new java.awt.Color(0, 173, 181));
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 173, 181));
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/pass.png"))); // NOI18N
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 240, 80, 70));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 200, 80, 70));
 
         jLabel8.setBackground(new java.awt.Color(0, 173, 181));
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 173, 181));
         jLabel8.setText("Member ID");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 220, 300, 40));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 180, 300, 40));
 
         tfBookID.setBackground(new java.awt.Color(34, 40, 49));
         tfBookID.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
@@ -161,19 +161,19 @@ public class LoanBookPage extends javax.swing.JFrame {
                 tfBookIDFocusLost(evt);
             }
         });
-        jPanel1.add(tfBookID, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 290, 50));
+        jPanel1.add(tfBookID, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, 290, 50));
 
         jLabel6.setBackground(new java.awt.Color(0, 173, 181));
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 173, 181));
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/notebook.png"))); // NOI18N
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, 80, 70));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 200, 80, 70));
 
         jLabel13.setBackground(new java.awt.Color(0, 173, 181));
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(0, 173, 181));
         jLabel13.setText("Book ID");
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, 300, 40));
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, 300, 40));
 
         AddBtn.setBackground(new java.awt.Color(57, 62, 70));
         AddBtn.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -192,7 +192,7 @@ public class LoanBookPage extends javax.swing.JFrame {
                 AddBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(AddBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 410, 470, 80));
+        jPanel1.add(AddBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 240, 290, 70));
 
         jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/arrow.png"))); // NOI18N
         jLabel19.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -207,13 +207,13 @@ public class LoanBookPage extends javax.swing.JFrame {
         date_loan.setColorButtonHover(new java.awt.Color(255, 211, 105));
         date_loan.setColorForeground(new java.awt.Color(0, 0, 0));
         date_loan.setPlaceholder("Enter Load Date...");
-        jPanel1.add(date_loan, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 260, 270, -1));
+        jPanel1.add(date_loan, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 320, 270, -1));
 
         date_dueDate.setColorBackground(new java.awt.Color(57, 62, 70));
         date_dueDate.setColorButtonHover(new java.awt.Color(255, 211, 105));
         date_dueDate.setColorForeground(new java.awt.Color(0, 0, 0));
         date_dueDate.setPlaceholder("Enter Return Date...");
-        jPanel1.add(date_dueDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(1390, 260, 270, -1));
+        jPanel1.add(date_dueDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 320, 270, -1));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/maximaze.png"))); // NOI18N
@@ -223,7 +223,7 @@ public class LoanBookPage extends javax.swing.JFrame {
                 jLabel1MouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1660, 0, 30, 30));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1480, 0, 30, 30));
 
         jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/refresh.png"))); // NOI18N
         jLabel23.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -232,9 +232,9 @@ public class LoanBookPage extends javax.swing.JFrame {
                 jLabel23MouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 480, -1, -1));
+        jPanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1550, 440));
 
         jPanel2.setBackground(new java.awt.Color(238, 238, 238));
         jPanel2.setPreferredSize(new java.awt.Dimension(1730, 450));
@@ -261,7 +261,7 @@ public class LoanBookPage extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(Sub_Table);
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 0, 720, 450));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 0, 600, 390));
 
         Book_Table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -284,11 +284,11 @@ public class LoanBookPage extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(Book_Table);
 
-        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, 450));
+        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 390));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 550, -1, -1));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 440, 1550, 390));
 
-        setSize(new java.awt.Dimension(1730, 1000));
+        setSize(new java.awt.Dimension(1550, 825));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     

@@ -39,7 +39,6 @@ public class ViewRecordsPage extends javax.swing.JFrame {
         jLabel23 = new javax.swing.JLabel();
         date_loan = new rojeru_san.componentes.RSDateChooser();
         jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
         date_dueDate = new rojeru_san.componentes.RSDateChooser();
         jLabel11 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
@@ -68,7 +67,7 @@ public class ViewRecordsPage extends javax.swing.JFrame {
                 jLabel15MouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 10, 30, 30));
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(1440, 0, 30, 30));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -80,13 +79,13 @@ public class ViewRecordsPage extends javax.swing.JFrame {
                 jLabel5MouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1320, 10, 40, 29));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1510, 0, 40, 29));
 
         jLabel22.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(255, 255, 255));
         jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/ReturnBook.png"))); // NOI18N
         jLabel22.setText("  Loan Records");
-        jPanel1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 0, 480, 130));
+        jPanel1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 0, 480, 130));
 
         jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/clear.png"))); // NOI18N
         jLabel20.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -95,7 +94,7 @@ public class ViewRecordsPage extends javax.swing.JFrame {
                 jLabel20MouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(1300, 490, 60, 60));
+        jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(1490, 390, 60, 60));
 
         AddBtn.setBackground(new java.awt.Color(57, 62, 70));
         AddBtn.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -114,7 +113,7 @@ public class ViewRecordsPage extends javax.swing.JFrame {
                 AddBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(AddBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 410, 310, 70));
+        jPanel1.add(AddBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 250, 310, 70));
 
         jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/arrow.png"))); // NOI18N
         jLabel19.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -133,7 +132,7 @@ public class ViewRecordsPage extends javax.swing.JFrame {
                 jLabel1MouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1290, 10, 30, 30));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1480, 0, 30, 30));
 
         jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/refresh.png"))); // NOI18N
         jLabel23.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -142,48 +141,42 @@ public class ViewRecordsPage extends javax.swing.JFrame {
                 jLabel23MouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 480, -1, -1));
+        jPanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, -1, -1));
 
         date_loan.setColorBackground(new java.awt.Color(57, 62, 70));
         date_loan.setColorButtonHover(new java.awt.Color(255, 211, 105));
         date_loan.setColorForeground(new java.awt.Color(0, 0, 0));
         date_loan.setPlaceholder("Enter Load Date...");
-        jPanel1.add(date_loan, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 290, 270, 50));
+        jPanel1.add(date_loan, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 220, 270, 50));
 
         jLabel9.setBackground(new java.awt.Color(0, 173, 181));
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 173, 181));
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/loan_date.png"))); // NOI18N
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 270, 80, 80));
-
-        jLabel10.setBackground(new java.awt.Color(0, 173, 181));
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(0, 173, 181));
-        jLabel10.setText("Loan Date gap");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 190, 250, 50));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 200, 80, 80));
 
         date_dueDate.setColorBackground(new java.awt.Color(57, 62, 70));
         date_dueDate.setColorButtonHover(new java.awt.Color(255, 211, 105));
         date_dueDate.setColorForeground(new java.awt.Color(0, 0, 0));
         date_dueDate.setPlaceholder("Enter  Date...");
-        jPanel1.add(date_dueDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 290, 270, 50));
+        jPanel1.add(date_dueDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 330, 270, 50));
 
         jLabel11.setBackground(new java.awt.Color(0, 173, 181));
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 173, 181));
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/return-to-the-past.png"))); // NOI18N
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 270, 80, 80));
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 310, 80, 80));
 
         jPanel3.setBackground(new java.awt.Color(57, 62, 70));
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 140, 500, 10));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 140, 500, 10));
 
         jPanel4.setBackground(new java.awt.Color(57, 62, 70));
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 0, -1, 150));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 0, -1, 150));
 
         jPanel5.setBackground(new java.awt.Color(57, 62, 70));
-        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 0, -1, 150));
+        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 0, -1, 150));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1360, -1));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1550, 450));
 
         jPanel2.setBackground(new java.awt.Color(238, 238, 238));
         jPanel2.setPreferredSize(new java.awt.Dimension(1730, 450));
@@ -210,11 +203,11 @@ public class ViewRecordsPage extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(Loan_Table);
 
-        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1360, 450));
+        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1550, 380));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 550, 1360, -1));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 450, 1550, 380));
 
-        setSize(new java.awt.Dimension(1358, 1000));
+        setSize(new java.awt.Dimension(1550, 825));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     
@@ -394,7 +387,6 @@ public class ViewRecordsPage extends javax.swing.JFrame {
     private rojeru_san.componentes.RSDateChooser date_dueDate;
     private rojeru_san.componentes.RSDateChooser date_loan;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel19;

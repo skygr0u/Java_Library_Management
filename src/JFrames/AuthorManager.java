@@ -101,7 +101,7 @@ public class AuthorManager extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(Author_Table);
 
-        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 910, 400));
+        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 940, 400));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
@@ -112,7 +112,7 @@ public class AuthorManager extends javax.swing.JFrame {
                 jLabel1MouseClicked(evt);
             }
         });
-        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, -10, 40, 60));
+        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, -10, 40, 60));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
@@ -123,7 +123,7 @@ public class AuthorManager extends javax.swing.JFrame {
                 jLabel2MouseClicked(evt);
             }
         });
-        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 0, -1, 50));
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 0, -1, 50));
 
         jPanel6.setBackground(new java.awt.Color(34, 40, 49));
 
@@ -166,7 +166,7 @@ public class AuthorManager extends javax.swing.JFrame {
                 UpdateBtnActionPerformed(evt);
             }
         });
-        jPanel3.add(UpdateBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 660, 270, 70));
+        jPanel3.add(UpdateBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 690, 270, 70));
 
         AddBtn.setBackground(new java.awt.Color(57, 62, 70));
         AddBtn.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -184,7 +184,7 @@ public class AuthorManager extends javax.swing.JFrame {
                 AddBtnActionPerformed(evt);
             }
         });
-        jPanel3.add(AddBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 660, 240, 70));
+        jPanel3.add(AddBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 690, 240, 70));
 
         DeleteBtn.setBackground(new java.awt.Color(57, 62, 70));
         DeleteBtn.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -197,7 +197,7 @@ public class AuthorManager extends javax.swing.JFrame {
                 DeleteBtnActionPerformed(evt);
             }
         });
-        jPanel3.add(DeleteBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 660, 260, 70));
+        jPanel3.add(DeleteBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 690, 260, 70));
 
         jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/refresh.png"))); // NOI18N
         jLabel22.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -208,7 +208,7 @@ public class AuthorManager extends javax.swing.JFrame {
         });
         jPanel3.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 0, 970, 800));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 0, 1020, 830));
 
         jPanel2.setBackground(new java.awt.Color(34, 40, 49));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -386,7 +386,7 @@ public class AuthorManager extends javax.swing.JFrame {
                 jLabel20MouseClicked(evt);
             }
         });
-        jPanel2.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 730, -1, -1));
+        jPanel2.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 740, -1, -1));
 
         tfPassword.setBackground(new java.awt.Color(34, 40, 49));
         tfPassword.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
@@ -428,9 +428,9 @@ public class AuthorManager extends javax.swing.JFrame {
         });
         jPanel2.add(disable, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 550, -1, -1));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, 800));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, 830));
 
-        setSize(new java.awt.Dimension(1500, 800));
+        setSize(new java.awt.Dimension(1550, 825));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     
