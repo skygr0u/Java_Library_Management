@@ -4,22 +4,22 @@ import biblio.DatabaseConnection;
 import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
 
-public class DeleteFormAuthor extends javax.swing.JFrame {
+public class DeleteFormLoan extends javax.swing.JFrame {
 
-    public DeleteFormAuthor() {
+    public DeleteFormLoan() {
         initComponents();
     }
 
-    //Delete Sub detail
-    public boolean deleteSubscriber(){
+    
+    //Delete book detail
+    public boolean deleteLoan(){
         boolean isDeleted = false;
-        int AuthorID = Integer.parseInt(tfID.getText());
-        
+        int LoanID = Integer.parseInt(tfID.getText());
         try {
             java.sql.Connection con = DatabaseConnection.getConnection();
-            String sql = "delete from auteurs where idauteur = ? ";
+            String sql = "delete from emprunts where idemprunt = ? ";
             PreparedStatement pst = con.prepareStatement(sql);
-            pst.setInt(1, AuthorID);
+            pst.setInt(1, LoanID);
             
             int rowCount = pst.executeUpdate();
             if (rowCount > 0) {
@@ -33,6 +33,7 @@ public class DeleteFormAuthor extends javax.swing.JFrame {
         return isDeleted;
     }
     
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -57,8 +58,8 @@ public class DeleteFormAuthor extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 211, 105));
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Author.png"))); // NOI18N
-        jLabel3.setText("Delete Author");
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/loan_date.png"))); // NOI18N
+        jLabel3.setText("  Delete Loan");
 
         panel3.setBackground(new java.awt.Color(255, 211, 105));
 
@@ -89,24 +90,25 @@ public class DeleteFormAuthor extends javax.swing.JFrame {
         panel2Layout.setHorizontalGroup(
             panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel2Layout.createSequentialGroup()
-                .addContainerGap(54, Short.MAX_VALUE)
+                .addGap(42, 42, 42)
                 .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel2Layout.createSequentialGroup()
                         .addComponent(panel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(55, 55, 55))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel2Layout.createSequentialGroup()
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                        .addComponent(jLabel1)))
                 .addContainerGap())
-            .addGroup(panel2Layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panel2Layout.setVerticalGroup(
             panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel2Layout.createSequentialGroup()
-                .addComponent(jLabel1)
-                .addGap(2, 2, 2)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addGroup(panel2Layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(jLabel3)))
                 .addGap(20, 20, 20)
                 .addComponent(panel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -117,35 +119,35 @@ public class DeleteFormAuthor extends javax.swing.JFrame {
         jLabel6.setBackground(new java.awt.Color(0, 173, 181));
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 173, 181));
-        jLabel6.setText("Enter Author ID");
-        panel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, 300, -1));
+        jLabel6.setText("Enter Loan ID");
+        panel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, 300, -1));
 
         tfID.setBackground(new java.awt.Color(34, 40, 49));
         tfID.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
         tfID.setForeground(new java.awt.Color(255, 255, 255));
         tfID.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         tfID.setPhColor(new java.awt.Color(255, 255, 255));
-        tfID.setPlaceholder("Enter Author ID...");
+        tfID.setPlaceholder("Enter Loan ID...");
         tfID.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 tfIDFocusLost(evt);
             }
         });
-        panel1.add(tfID, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, 290, -1));
+        panel1.add(tfID, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, 290, -1));
 
         jLabel7.setBackground(new java.awt.Color(0, 173, 181));
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 173, 181));
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/development.png"))); // NOI18N
-        panel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 80, 50));
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/internet.png"))); // NOI18N
+        panel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 80, 50));
 
         DeleteBtn.setBackground(new java.awt.Color(57, 62, 70));
         DeleteBtn.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        DeleteBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/user.png"))); // NOI18N
+        DeleteBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/bin.png"))); // NOI18N
+        DeleteBtn.setText("  Delete Loan");
         DeleteBtn.setActionCommand("Delete Subsciber");
         DeleteBtn.setColorHover(new java.awt.Color(255, 211, 105));
         DeleteBtn.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        DeleteBtn.setLabel("Delete Author");
         DeleteBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DeleteBtnActionPerformed(evt);
@@ -176,13 +178,13 @@ public class DeleteFormAuthor extends javax.swing.JFrame {
         // TODO add your handling code here:
         String AuthorID = tfID.getText();
         if (AuthorID.isEmpty()){
-            JOptionPane.showMessageDialog(this, "Enter Author ID");
+            JOptionPane.showMessageDialog(this, "Enter Loan  ID");
         }
-        else if (deleteSubscriber()== true) {
-            JOptionPane.showMessageDialog(this, "Author Deleted");
+        else if (deleteLoan()== true) {
+            JOptionPane.showMessageDialog(this, "Loan Deleted");
             dispose();
         }else{
-            JOptionPane.showMessageDialog(this, "Author Deletion Failed","Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Loan Deletion Failed","Error", JOptionPane.ERROR_MESSAGE);
             dispose();
         }
     }//GEN-LAST:event_DeleteBtnActionPerformed
@@ -206,14 +208,22 @@ public class DeleteFormAuthor extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(DeleteFormAuthor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DeleteFormLoan.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(DeleteFormAuthor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DeleteFormLoan.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(DeleteFormAuthor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DeleteFormLoan.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(DeleteFormAuthor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DeleteFormLoan.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -226,7 +236,7 @@ public class DeleteFormAuthor extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new DeleteFormAuthor().setVisible(true);
+                new DeleteFormLoan().setVisible(true);
             }
         });
     }

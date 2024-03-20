@@ -165,7 +165,7 @@ public class ViewRecordsPage extends javax.swing.JFrame {
         date_dueDate.setColorBackground(new java.awt.Color(57, 62, 70));
         date_dueDate.setColorButtonHover(new java.awt.Color(255, 211, 105));
         date_dueDate.setColorForeground(new java.awt.Color(0, 0, 0));
-        date_dueDate.setPlaceholder("Enter Return Date...");
+        date_dueDate.setPlaceholder("Enter  Date...");
         jPanel1.add(date_dueDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 290, 270, 50));
 
         jLabel11.setBackground(new java.awt.Color(0, 173, 181));
@@ -251,54 +251,53 @@ public class ViewRecordsPage extends javax.swing.JFrame {
         model.setRowCount(0);
     }
     
-    //to fetch the record using date fields
     public void search() {
+    Date uFromDate = date_loan.getDatoFecha();
+    Date uToDate = date_dueDate.getDatoFecha();
 
-        Date uFromDate = date_loan.getDatoFecha();
-        Date uToDate = date_dueDate.getDatoFecha();
+    long l1 = uFromDate.getTime();
+    long l2 = uToDate.getTime();
 
-        long l1 = uFromDate.getTime();
-        long l2 = uToDate.getTime();
+    java.sql.Date fromDate = new java.sql.Date(l1);
+    java.sql.Date toDate = new java.sql.Date(l2);
 
-        java.sql.Date fromDate = new java.sql.Date(l1);
-        java.sql.Date toDate = new java.sql.Date(l2);
+    try {
+        java.sql.Connection con = DatabaseConnection.getConnection();
+        String sql = "SELECT e.idEmprunt, e.idLivre, e.idAbonné, e.dateEmprunt, e.Retour, e.Status, l.titre, a.username " +
+                "FROM emprunts e JOIN livres l ON e.idLivre = l.idLivre JOIN abonnés a ON e.idAbonné = a.idAbonné " +
+                "WHERE e.dateEmprunt BETWEEN ? AND ?";
+        PreparedStatement pst = con.prepareStatement(sql);
+        pst.setDate(1, fromDate);
+        pst.setDate(2, toDate);
 
-        try {
-            java.sql.Connection con = DatabaseConnection.getConnection();
-            String sql = "SELECT e.idEmprunt, e.idLivre, e.idAbonné, e.dateEmprunt, e.Retour, e.Status, l.titre, a.username " +
-                "FROM emprunts e JOIN livres l ON e.idLivre = l.idLivre JOIN abonnés a ON e.idAbonné = a.idAbonné where dateemprunt BETWEEN ? and ?";
-            PreparedStatement pst = con.prepareStatement(sql);
-            pst.setDate(1, fromDate);
-            pst.setDate(2, toDate);
+        ResultSet rs = pst.executeQuery();
 
-            ResultSet rs = pst.executeQuery();
+        DefaultTableModel model = (DefaultTableModel) Loan_Table.getModel();
+        model.setRowCount(0); 
+        if (!rs.next()) {
+            JOptionPane.showMessageDialog(this, "No Record Found");
+        } else {
+            do {
+                int LoanID = rs.getInt("idEmprunt");
+                int BookID = rs.getInt("idLivre");
+                String BookTitle = rs.getString("titre");
+                int SubscriberID = rs.getInt("idAbonné");
+                String MemberName = rs.getString("username");
+                String LoanDate = rs.getString("dateEmprunt");
+                String ReturnDate = rs.getString("Retour");
+                String Status = rs.getString("Status");
 
-            if (rs.next() == false) {
-                JOptionPane.showMessageDialog(this, "No Record Found");
-            } else {
-
-                while (rs.next()) {
-                    int LoanID = rs.getInt("idEmprunt");
-                    int BookID = rs.getInt("idLivre");
-                    String BookTitle = rs.getString("titre");
-                    int SubscriberID = rs.getInt("idAbonné");
-                    String MemberName = rs.getString("username");
-                    String LoanDate = rs.getString("dateEmprunt");
-                    String ReturnDate = rs.getString("Retour");
-                    String Status = rs.getString("Status");
-
-                    Object[] obj = {LoanID, BookID, BookTitle, SubscriberID, MemberName, LoanDate, ReturnDate, Status};
-                    DefaultTableModel model = (DefaultTableModel) Loan_Table.getModel();
-                    model.addRow(obj);
-                }
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
+                Object[] obj = {LoanID, BookID, BookTitle, SubscriberID, MemberName, LoanDate, ReturnDate, Status};
+                model.addRow(obj);
+            } while (rs.next());
         }
-    }
 
-    
+        con.close(); 
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
+
     private void jLabel15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseClicked
         // TODO add your handling code here:
         this.setState(LoginPage.ICONIFIED);
