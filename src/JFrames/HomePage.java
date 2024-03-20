@@ -556,7 +556,7 @@ public class HomePage extends javax.swing.JFrame {
         Author_Table.setRowHeight(40);
         jScrollPane1.setViewportView(Author_Table);
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 310, 840, 190));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 320, 840, 180));
 
         Sub_Table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -576,7 +576,7 @@ public class HomePage extends javax.swing.JFrame {
             Sub_Table.getColumnModel().getColumn(1).setResizable(false);
         }
 
-        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 100, 840, 160));
+        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 100, 840, 180));
 
         jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(34, 40, 49));
@@ -588,7 +588,7 @@ public class HomePage extends javax.swing.JFrame {
         jLabel21.setForeground(new java.awt.Color(34, 40, 49));
         jLabel21.setText("Authors's Details :");
         jLabel21.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 4, 0, new java.awt.Color(0, 0, 0)));
-        jPanel2.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 270, 180, -1));
+        jPanel2.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 280, 180, -1));
 
         jPanel7.setBackground(new java.awt.Color(34, 40, 49));
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -632,7 +632,7 @@ public class HomePage extends javax.swing.JFrame {
         BooksOverDue.setText("10");
         jPanel19.add(BooksOverDue, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 71, -1));
 
-        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/writer.png"))); // NOI18N
+        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/warning.png"))); // NOI18N
         jPanel19.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
 
         jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/points.png"))); // NOI18N
@@ -668,7 +668,7 @@ public class HomePage extends javax.swing.JFrame {
         jLabel49.setForeground(new java.awt.Color(255, 255, 255));
         jLabel49.setText("Number Of ");
         jLabel49.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
-        jPanel19.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 110, -1));
+        jPanel19.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 110, -1));
 
         jLabel50.setBackground(new java.awt.Color(102, 102, 102));
         jLabel50.setFont(new java.awt.Font("Segoe Pro", 2, 20)); // NOI18N

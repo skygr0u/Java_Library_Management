@@ -20,10 +20,11 @@ public class StatsPage extends javax.swing.JFrame {
 
     public StatsPage() {
         initComponents();
-        showPieChart();
+        showPieChartBooks();
+        showPieChartAuthor();
     }
     
-    public void showPieChart() {
+    public void showPieChartBooks() {
 
         //create dataset
         DefaultPieDataset barDataset = new DefaultPieDataset();
@@ -49,9 +50,40 @@ public class StatsPage extends javax.swing.JFrame {
 
         //create chartPanel to display chart(graph)
         ChartPanel barChartPanel = new ChartPanel(piechart);
-        panelPieChart.removeAll();
-        panelPieChart.add(barChartPanel, BorderLayout.CENTER);
-        panelPieChart.validate();
+        LoanedBooks.removeAll();
+        LoanedBooks.add(barChartPanel, BorderLayout.CENTER);
+        LoanedBooks.validate();
+    }
+    
+    public void showPieChartAuthor() {
+
+        //create dataset
+        DefaultPieDataset barDataset = new DefaultPieDataset();
+        
+        try {
+            java.sql.Connection con = DatabaseConnection.getConnection();
+            String sql = "select a.username as Name,count(*) as loan_count from emprunts e join abonnés a on(e.idabonné = a.idabonné) group by e.idabonné";
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while(rs.next()){
+              barDataset.setValue(rs.getString("Name"), new Double(rs.getDouble("loan_count")));  
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+        JFreeChart piechart = ChartFactory.createPieChart("Subsciber Loans Details", barDataset, true, true, false);
+
+        PiePlot piePlot = (PiePlot) piechart.getPlot();
+
+        piePlot.setBackgroundPaint(new Color(34,40,49));
+
+        //create chartPanel to display chart(graph)
+        ChartPanel barChartPanel = new ChartPanel(piechart);
+        Subs.removeAll();
+        Subs.add(barChartPanel, BorderLayout.CENTER);
+        Subs.validate();
     }
     
     DefaultTableModel model;
@@ -66,7 +98,8 @@ public class StatsPage extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
-        panelPieChart = new javax.swing.JPanel();
+        Subs = new javax.swing.JPanel();
+        LoanedBooks = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -85,7 +118,7 @@ public class StatsPage extends javax.swing.JFrame {
         jLabel42.setForeground(new java.awt.Color(255, 255, 255));
         jLabel42.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/monitor.png"))); // NOI18N
         jLabel42.setText("  Library Stats");
-        jPanel5.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 20, 500, -1));
+        jPanel5.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 20, 500, -1));
 
         jLabel15.setBackground(new java.awt.Color(238, 238, 238));
         jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 55)); // NOI18N
@@ -97,7 +130,7 @@ public class StatsPage extends javax.swing.JFrame {
                 jLabel15MouseClicked(evt);
             }
         });
-        jPanel5.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 0, 30, 30));
+        jPanel5.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(1460, 0, 30, 30));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/maximaze.png"))); // NOI18N
@@ -107,7 +140,7 @@ public class StatsPage extends javax.swing.JFrame {
                 jLabel1MouseClicked(evt);
             }
         });
-        jPanel5.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 0, 30, 30));
+        jPanel5.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1490, 0, 30, 30));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -119,7 +152,7 @@ public class StatsPage extends javax.swing.JFrame {
                 jLabel5MouseClicked(evt);
             }
         });
-        jPanel5.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 0, 40, 29));
+        jPanel5.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1510, 0, 40, 29));
 
         jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/arrow.png"))); // NOI18N
         jLabel19.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -130,12 +163,13 @@ public class StatsPage extends javax.swing.JFrame {
         });
         jPanel5.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1170, 180));
-        jPanel1.add(panelPieChart, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 230, 700, 440));
+        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1550, 180));
+        jPanel1.add(Subs, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 260, 700, 440));
+        jPanel1.add(LoanedBooks, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 700, 440));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1180, 730));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1560, 830));
 
-        setSize(new java.awt.Dimension(1172, 723));
+        setSize(new java.awt.Dimension(1550, 825));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     
@@ -207,6 +241,8 @@ public class StatsPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel LoanedBooks;
+    private javax.swing.JPanel Subs;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel19;
@@ -214,6 +250,5 @@ public class StatsPage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel panelPieChart;
     // End of variables declaration//GEN-END:variables
 }
