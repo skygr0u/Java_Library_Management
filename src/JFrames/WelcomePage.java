@@ -146,9 +146,9 @@ public class WelcomePage extends javax.swing.JFrame {
         jPanel1.add(jLabel3);
         jLabel3.setBounds(30, 190, 70, 70);
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/reading.png"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/read.png"))); // NOI18N
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(580, 40, 40, 40);
+        jLabel5.setBounds(570, 50, 60, 70);
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Welcome.png"))); // NOI18N
         jPanel1.add(jLabel6);
@@ -170,7 +170,7 @@ public class WelcomePage extends javax.swing.JFrame {
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BooksCover/bg_library.jpeg"))); // NOI18N
         jLabel7.setText("jLabel7");
         jPanel1.add(jLabel7);
-        jLabel7.setBounds(160, 0, 1020, 510);
+        jLabel7.setBounds(160, 0, 1020, 520);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

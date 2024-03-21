@@ -49,8 +49,8 @@ public class AuthorLoginPage extends javax.swing.JFrame {
             ResultSet rs = pst.executeQuery();
             if (rs.next()) {
                 JOptionPane.showMessageDialog(this, "login successful");
-                HomePage home = new HomePage();
-                home.setVisible(true);
+                AuthorPage authorpage = new AuthorPage();
+                authorpage.setVisible(true);
                 this.dispose();
 
             } else {

@@ -516,7 +516,7 @@ public class SubsManager extends javax.swing.JFrame {
 
     private void jLabel19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseClicked
         // TODO add your handSub_Tablehere:
-        HomePage homepage = new HomePage();
+        AdminHomePage homepage = new AdminHomePage();
         homepage.setVisible(true);
         dispose();
     }//GEN-LAST:event_jLabel19MouseClicked

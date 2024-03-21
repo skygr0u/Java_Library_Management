@@ -41,25 +41,26 @@ public class MemberLoginPage extends javax.swing.JFrame {
 
         try {
             java.sql.Connection con = DatabaseConnection.getConnection();
-            PreparedStatement pst = con.prepareStatement("select * from abonnés where username = ? and password = ?");
+            PreparedStatement pst = con.prepareStatement("SELECT idAbonné FROM abonnés WHERE username = ? AND password = ?");
 
             pst.setString(1, name);
             pst.setString(2, pwd);
 
             ResultSet rs = pst.executeQuery();
             if (rs.next()) {
-                JOptionPane.showMessageDialog(this, "login successful");
-                HomePage home = new HomePage();
-                home.setVisible(true);
-                this.dispose();
+                JOptionPane.showMessageDialog(this, "Login successful");
+                int idAbonne = rs.getInt("idAbonné"); 
 
+                MemberPage memberpage = new MemberPage(idAbonne);
+                memberpage.setVisible(true);
+                this.dispose();
             } else {
-                JOptionPane.showMessageDialog(this, "incorrect username or password", "Error", JOptionPane.ERROR_MESSAGE);            
+                JOptionPane.showMessageDialog(this, "Incorrect username or password", "Error", JOptionPane.ERROR_MESSAGE);            
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
+}
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

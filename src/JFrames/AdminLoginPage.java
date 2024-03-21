@@ -49,7 +49,7 @@ public class AdminLoginPage extends javax.swing.JFrame {
             ResultSet rs = pst.executeQuery();
             if (rs.next()) {
                 JOptionPane.showMessageDialog(this, "login successful");
-                HomePage home = new HomePage();
+                AdminHomePage home = new AdminHomePage();
                 home.setVisible(true);
                 this.dispose();
 
