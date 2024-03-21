@@ -594,7 +594,7 @@ public class AuthorManager extends javax.swing.JFrame {
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         // TODO add your handling code here:
-        this.setState(LoginPage.ICONIFIED);
+        this.setState(AdminLoginPage.ICONIFIED);
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void jLabel19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseClicked

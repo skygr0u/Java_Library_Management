@@ -177,7 +177,7 @@ public class StatsPage extends javax.swing.JFrame {
 
     private void jLabel15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseClicked
         // TODO add your handling code here:
-        this.setState(LoginPage.ICONIFIED);
+        this.setState(AdminLoginPage.ICONIFIED);
     }//GEN-LAST:event_jLabel15MouseClicked
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked

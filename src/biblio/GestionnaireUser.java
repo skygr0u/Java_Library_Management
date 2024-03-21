@@ -12,38 +12,16 @@ public class GestionnaireUser {
         this.userDAO = userDAO;
     }
 
-    public void ajouterAuteur() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Entrez le nom de l'auteur :");
-        String nom = scanner.nextLine();
-
-        System.out.println("Entrez le prénom de l'auteur :");
-        String prenom = scanner.nextLine();
-
-        System.out.println("Entrez le nom d'utilisateur :");
-        String username = scanner.nextLine();
-
-        System.out.println("Entrez le mot de passe :");
-        String password = scanner.nextLine();
-
-        Auteur auteur = new Auteur( nom, prenom, username, password);
+    public void ajouterAuteur(String nom, String prenom, String username, String password, String email) {
+        Auteur auteur = new Auteur(nom, prenom, username, password, email);
 
         if (userDAO.insertAuteur(auteur)) {
-            System.out.println("L'auteur a été ajouté avec succès.");
+            JOptionPane.showMessageDialog(null, "The Author has been added successfully.");
         } else {
-            System.out.println("Erreur lors de l'ajout de l'auteur.");
+            JOptionPane.showMessageDialog(null, "Error adding Author.", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
-    public void supprimerAuteur() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Entrez l'ID de l'auteur à supprimer :");
-        int id = scanner.nextInt();
-        if (userDAO.deleteAuteur(id)) {
-            System.out.println("L'auteur a été supprimé avec succès.");
-        } else {
-            System.out.println("Erreur lors de la suppression de l'auteur.");
-        }
-    }
+
 
     public void afficherListeAuteur() {
         Vector<Auteur> auteurs = userDAO.getAllAuteurs();

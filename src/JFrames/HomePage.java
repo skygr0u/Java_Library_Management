@@ -790,12 +790,12 @@ public class HomePage extends javax.swing.JFrame {
 
     private void jLabel15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseClicked
         // TODO add your handling code here:
-        this.setState(LoginPage.ICONIFIED);
+        this.setState(AdminLoginPage.ICONIFIED);
     }//GEN-LAST:event_jLabel15MouseClicked
 
     private void jLabel38MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel38MouseClicked
         // TODO add your handling code here:
-        LoginPage loginpage = new LoginPage();
+        AdminLoginPage loginpage = new AdminLoginPage();
         loginpage.setVisible(true);
         dispose();
     }//GEN-LAST:event_jLabel38MouseClicked

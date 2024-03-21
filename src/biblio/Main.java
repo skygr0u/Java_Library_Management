@@ -62,10 +62,10 @@ public class Main {
             
             switch (choix) {
                 case 1:
-                    gestionnaireUser.ajouterAuteur();
+                    //gestionnaireUser.ajouterAuteur();
                     break;
                 case 2:
-                    gestionnaireUser.supprimerAuteur();
+                   // gestionnaireUser.supprimerAuteur();
                     break;
                 case 3:
                     gestionnaireUser.afficherListeAuteur();

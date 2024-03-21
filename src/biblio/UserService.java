@@ -154,12 +154,13 @@ public boolean insertAuteur(Auteur auteur) {
     try {
         connection = DatabaseConnection.getConnection();
 
-        String query = "INSERT INTO auteurs (nom, prenom, username, password) VALUES (?, ?, ?, ?)";
+        String query = "INSERT INTO auteurs (nom, prenom, username, password, email) VALUES (?, ?, ?, ?, ?)";
         statement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
         statement.setString(1, auteur.getNom());
         statement.setString(2, auteur.getPrenom());
         statement.setString(3, auteur.getUsername());
         statement.setString(4, auteur.getPassword());
+        statement.setString(5, auteur.getEmail());
 
         int rowsInserted = statement.executeUpdate();
 

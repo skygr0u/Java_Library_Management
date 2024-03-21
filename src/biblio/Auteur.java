@@ -8,6 +8,23 @@ public class Auteur {
     private String prenom;
     private String username;
     private String password;
+    private String email;
+
+    public Auteur(String nom, String prenom, String username, String password, String email) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.username = username;
+        this.password = password;
+        this.email = email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getEmail() {
+        return email;
+    }
     
     public Auteur( String nom, String prenom, String username, String password) {
         this.nom = nom;
