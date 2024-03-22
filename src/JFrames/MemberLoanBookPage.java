@@ -16,12 +16,35 @@ import javax.swing.table.TableModel;
 
 public class MemberLoanBookPage extends javax.swing.JFrame {
 
+    public int memberId;
+     
+    public String getMemberName() {
+        String Name = null;
+        try {
+            java.sql.Connection con = DatabaseConnection.getConnection();
+            PreparedStatement pst = con.prepareStatement("SELECT username FROM abonnés WHERE idabonné = ?");
 
-    public MemberLoanBookPage() {
-        initComponents();
-        setBookDetailsToTable();
-        setSubsDetailsToTable();
+            pst.setInt(1, memberId);
+
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                Name = rs.getString("username");
+            } else {
+                JOptionPane.showMessageDialog(this, "Error", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return Name;
     }
+    
+
+    public MemberLoanBookPage(int memberId) {
+        initComponents();
+        this.memberId = memberId;
+        setBookDetailsToTable();
+    }
+    
     String bookTitle, author, ISBN, PublicationDate;
     int bookID, dispo, quantity;
     String Email, Username, Contact;
@@ -40,10 +63,7 @@ public class MemberLoanBookPage extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        tfSubscriber = new app.bolivia.swing.JCTextField();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        tfBookID = new app.bolivia.swing.JCTextField();
+        BookTitle = new app.bolivia.swing.JCTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         AddBtn = new rojeru_san.complementos.RSButtonHover();
@@ -53,8 +73,6 @@ public class MemberLoanBookPage extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        Sub_Table = new rojeru_san.complementos.RSTableMetro();
         jScrollPane2 = new javax.swing.JScrollPane();
         Book_Table = new rojeru_san.complementos.RSTableMetro();
 
@@ -122,63 +140,42 @@ public class MemberLoanBookPage extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 173, 181));
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/loan_date.png"))); // NOI18N
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 300, 80, 70));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 180, 80, 70));
 
         jLabel10.setBackground(new java.awt.Color(0, 173, 181));
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 173, 181));
         jLabel10.setText("Loan Date");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, 300, 40));
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 160, 300, 40));
 
-        tfSubscriber.setBackground(new java.awt.Color(34, 40, 49));
-        tfSubscriber.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
-        tfSubscriber.setForeground(new java.awt.Color(255, 255, 255));
-        tfSubscriber.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        tfSubscriber.setPhColor(new java.awt.Color(255, 255, 255));
-        tfSubscriber.setPlaceholder("Enter Subsciber ID...");
-        jPanel1.add(tfSubscriber, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 210, 290, 50));
-
-        jLabel7.setBackground(new java.awt.Color(0, 173, 181));
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 173, 181));
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/pass.png"))); // NOI18N
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 200, 80, 70));
-
-        jLabel8.setBackground(new java.awt.Color(0, 173, 181));
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 173, 181));
-        jLabel8.setText("Member ID");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 180, 300, 40));
-
-        tfBookID.setBackground(new java.awt.Color(34, 40, 49));
-        tfBookID.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
-        tfBookID.setForeground(new java.awt.Color(255, 255, 255));
-        tfBookID.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        tfBookID.setPhColor(new java.awt.Color(255, 255, 255));
-        tfBookID.setPlaceholder("Enter Book ID...");
-        tfBookID.addFocusListener(new java.awt.event.FocusAdapter() {
+        BookTitle.setBackground(new java.awt.Color(34, 40, 49));
+        BookTitle.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+        BookTitle.setForeground(new java.awt.Color(255, 255, 255));
+        BookTitle.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        BookTitle.setPhColor(new java.awt.Color(255, 255, 255));
+        BookTitle.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                tfBookIDFocusLost(evt);
+                BookTitleFocusLost(evt);
             }
         });
-        jPanel1.add(tfBookID, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, 290, 50));
+        jPanel1.add(BookTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 250, 290, 50));
 
         jLabel6.setBackground(new java.awt.Color(0, 173, 181));
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 173, 181));
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/notebook.png"))); // NOI18N
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 200, 80, 70));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 240, 80, 70));
 
         jLabel13.setBackground(new java.awt.Color(0, 173, 181));
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(0, 173, 181));
-        jLabel13.setText("Book ID");
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, 300, 40));
+        jLabel13.setText("Book Title");
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 220, 300, 40));
 
         AddBtn.setBackground(new java.awt.Color(57, 62, 70));
         AddBtn.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         AddBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/issue_book.png"))); // NOI18N
-        AddBtn.setText("Add Loan");
+        AddBtn.setText("Loan Book");
         AddBtn.setActionCommand("Loan Book");
         AddBtn.setColorHover(new java.awt.Color(255, 211, 105));
         AddBtn.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
@@ -207,7 +204,7 @@ public class MemberLoanBookPage extends javax.swing.JFrame {
         date_loan.setColorButtonHover(new java.awt.Color(255, 211, 105));
         date_loan.setColorForeground(new java.awt.Color(0, 0, 0));
         date_loan.setPlaceholder("Enter Load Date...");
-        jPanel1.add(date_loan, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 320, 270, -1));
+        jPanel1.add(date_loan, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 200, 270, -1));
 
         date_dueDate.setColorBackground(new java.awt.Color(57, 62, 70));
         date_dueDate.setColorButtonHover(new java.awt.Color(255, 211, 105));
@@ -240,35 +237,12 @@ public class MemberLoanBookPage extends javax.swing.JFrame {
         jPanel2.setPreferredSize(new java.awt.Dimension(1730, 450));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Sub_Table.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Sub ID", "UserName", "Email", "Contact"
-            }
-        ));
-        Sub_Table.setColorBackgoundHead(new java.awt.Color(57, 62, 70));
-        Sub_Table.setColorFilasForeground1(new java.awt.Color(57, 62, 70));
-        Sub_Table.setColorFilasForeground2(new java.awt.Color(57, 62, 70));
-        Sub_Table.setColorSelBackgound(new java.awt.Color(57, 62, 70));
-        Sub_Table.setRowHeight(40);
-        Sub_Table.setSelectionBackground(new java.awt.Color(238, 238, 238));
-        Sub_Table.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Sub_TableMouseClicked(evt);
-            }
-        });
-        jScrollPane1.setViewportView(Sub_Table);
-
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 0, 600, 390));
-
         Book_Table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Book ID", "Book Title", "Author Name", "ISBN", "Date Publication", "Availability", "Quantity"
+                "Book Title", "Author Name", "ISBN", "Date Publication", "Availability"
             }
         ));
         Book_Table.setColorBackgoundHead(new java.awt.Color(57, 62, 70));
@@ -284,7 +258,7 @@ public class MemberLoanBookPage extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(Book_Table);
 
-        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 390));
+        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1550, 390));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 440, 1550, 390));
 
@@ -309,7 +283,7 @@ public class MemberLoanBookPage extends javax.swing.JFrame {
                 String dispo = rs.getString("disponibilite");
                 int quantity = rs.getInt("quantite");
                 
-                Object[] obj = {bookID,bookTitle,author,ISBN,PublicationDate,dispo,quantity};
+                Object[] obj = {bookTitle,author,ISBN,PublicationDate,dispo};
                 model =(DefaultTableModel) Book_Table.getModel();
                 model.addRow(obj);
             }
@@ -319,33 +293,29 @@ public class MemberLoanBookPage extends javax.swing.JFrame {
         
     }
     
-    //to set the book details into the table
-    public void setSubsDetailsToTable(){
+    private int getBookIdByName(String bookName) {
+        int bookId = -1;
         try {
             java.sql.Connection con = DatabaseConnection.getConnection();
-            Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery("select idabonné, username, email, contact from abonnés");
-            
-            while(rs.next()){
-                int SubID = rs.getInt("idabonné");
-                String Username = rs.getString("username");
-                String Email = rs.getString("email");
-                String Contact = rs.getString("contact");
-                
-                Object[] obj = {SubID,Username,Email,Contact};
-                model =(DefaultTableModel) Sub_Table.getModel();
-                model.addRow(obj);
+            PreparedStatement pst = con.prepareStatement("SELECT idLivre FROM livres WHERE titre = ?");
+            pst.setString(1, bookName);
+
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                bookId = rs.getInt("idLivre");
+            } else {
+                JOptionPane.showMessageDialog(this, "Book not found", "Error", JOptionPane.ERROR_MESSAGE);
             }
         } catch (Exception e) {
             e.printStackTrace();
-        } 
-    }
+        }
+        return bookId;
+}
     
     //insert issue book details to database
     public boolean issueBook() {
         boolean isIssued = false;
-        int bookId = Integer.parseInt(tfBookID.getText());
-        int SubsId = Integer.parseInt(tfSubscriber.getText());
+        int bookId = getBookIdByName(BookTitle.getText());
         
         Date uIssueDate = date_loan.getDatoFecha();
         Date uDueDate = date_dueDate.getDatoFecha();
@@ -361,7 +331,7 @@ public class MemberLoanBookPage extends javax.swing.JFrame {
             String sql = "insert into emprunts(idlivre,idabonné,dateemprunt,retour,status) values(?,?,?,?,?)";
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setInt(1, bookId);
-            pst.setInt(2, SubsId);
+            pst.setInt(2, memberId);
             pst.setDate(3, sIssueDate);
             pst.setDate(4, sDueDate);
             pst.setString(5, "pending");
@@ -389,7 +359,7 @@ public class MemberLoanBookPage extends javax.swing.JFrame {
     
     //updating book count
     public void updateBookCount() {
-        int bookId = Integer.parseInt(tfBookID.getText());
+        int bookId = getBookIdByName(BookTitle.getText());
         try {
             java.sql.Connection con = DatabaseConnection.getConnection();
             String sql = "update livres set quantite = quantite - 1 where idlivre = ?";
@@ -399,9 +369,9 @@ public class MemberLoanBookPage extends javax.swing.JFrame {
             int rowCount = pst.executeUpdate();
 
             if (rowCount > 0) {
-                JOptionPane.showMessageDialog(this, "book count updated");
+                
             } else {
-                JOptionPane.showMessageDialog(this, "can't update book count");
+                
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -453,15 +423,14 @@ public class MemberLoanBookPage extends javax.swing.JFrame {
     public boolean isAlreadyIssued() {
 
         boolean isAlreadyIssued = false;
-        int bookId = Integer.parseInt(tfBookID.getText());
-        int SubsId = Integer.parseInt(tfSubscriber.getText());
+        int bookId = getBookIdByName(BookTitle.getText());
 
         try {
             java.sql.Connection con = DatabaseConnection.getConnection();
             String sql = "select * from emprunts where idlivre = ? and idabonné = ? and status = ?";
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setInt(1, bookId);
-            pst.setInt(2, SubsId);
+            pst.setInt(2, memberId);
             pst.setString(3, "pending");
 
             ResultSet rs = pst.executeQuery();
@@ -508,32 +477,23 @@ public class MemberLoanBookPage extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jLabel5MouseClicked
 
-    private void Sub_TableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Sub_TableMouseClicked
-        // TODO add your handling code here:
-        int rowNo = Sub_Table.getSelectedRow();
-        TableModel model = Sub_Table.getModel();
-
-        tfSubscriber.setText(model.getValueAt(rowNo, 0).toString());
-    }//GEN-LAST:event_Sub_TableMouseClicked
-
     private void Book_TableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Book_TableMouseClicked
         // TODO add your handling code here:
         int rowNo = Book_Table.getSelectedRow();
         TableModel model = Book_Table.getModel();
         
-        tfBookID.setText(model.getValueAt(rowNo, 0).toString());
+        BookTitle.setText(model.getValueAt(rowNo, 0).toString());
 
     }//GEN-LAST:event_Book_TableMouseClicked
 
     private void jLabel20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel20MouseClicked
         // TODO add your handling code here:
-        tfBookID.setText("");
-        tfSubscriber.setText("");
+        BookTitle.setText("");
     }//GEN-LAST:event_jLabel20MouseClicked
 
-    private void tfBookIDFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfBookIDFocusLost
+    private void BookTitleFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_BookTitleFocusLost
         // TODO add your handling code here:
-    }//GEN-LAST:event_tfBookIDFocusLost
+    }//GEN-LAST:event_BookTitleFocusLost
 
     private void AddBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddBtnMouseClicked
         // TODO add your handling code here:
@@ -541,7 +501,7 @@ public class MemberLoanBookPage extends javax.swing.JFrame {
 
     private void AddBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddBtnActionPerformed
         // TODO add your handling code here:
-        int bookId = Integer.parseInt(tfBookID.getText());
+        int bookId = getBookIdByName(BookTitle.getText());
         int dispo = getBookDispo(bookId);
 
         if (dispo == 0) {
@@ -567,9 +527,9 @@ public class MemberLoanBookPage extends javax.swing.JFrame {
 
     private void jLabel19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseClicked
         // TODO add your handling code here:
-        AdminHomePage homepage = new AdminHomePage();
-        homepage.setVisible(true);
-        dispose();
+        MemberHomePage memberhomepage = new MemberHomePage(memberId);
+        memberhomepage.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jLabel19MouseClicked
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
@@ -586,7 +546,6 @@ public class MemberLoanBookPage extends javax.swing.JFrame {
         // TODO add your handling code here:
         clearTable();
         setBookDetailsToTable();
-        setSubsDetailsToTable();
     }//GEN-LAST:event_jLabel23MouseClicked
 
     public static void main(String args[]) {
@@ -617,15 +576,14 @@ public class MemberLoanBookPage extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MemberLoanBookPage().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private rojeru_san.complementos.RSButtonHover AddBtn;
+    private app.bolivia.swing.JCTextField BookTitle;
     private rojeru_san.complementos.RSTableMetro Book_Table;
-    private rojeru_san.complementos.RSTableMetro Sub_Table;
     private rojeru_san.componentes.RSDateChooser date_dueDate;
     private rojeru_san.componentes.RSDateChooser date_loan;
     private javax.swing.JLabel jLabel1;
@@ -640,14 +598,9 @@ public class MemberLoanBookPage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private app.bolivia.swing.JCTextField tfBookID;
-    private app.bolivia.swing.JCTextField tfSubscriber;
     // End of variables declaration//GEN-END:variables
 }

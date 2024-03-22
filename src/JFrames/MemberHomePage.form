@@ -59,7 +59,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="0" y="270" width="440" height="60"/>
+              <AbsoluteConstraints x="0" y="270" width="440" height="80"/>
             </Constraint>
           </Constraints>
 
@@ -79,7 +79,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="150" y="0" width="220" height="50"/>
+                  <AbsoluteConstraints x="150" y="10" width="220" height="50"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -134,7 +134,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="250" y="190" width="140" height="50"/>
+              <AbsoluteConstraints x="240" y="190" width="140" height="50"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -190,7 +190,7 @@
                   <Color blue="69" green="d3" red="ff" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/icon/manager.png"/>
+                  <Image iconType="3" name="/icon/issue_book.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="   Loan Book"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -218,7 +218,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="0" y="570" width="440" height="70"/>
+              <AbsoluteConstraints x="0" y="580" width="440" height="70"/>
             </Constraint>
           </Constraints>
 
@@ -235,7 +235,7 @@
                   <Color blue="69" green="d3" red="ff" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/icon/Author.png"/>
+                  <Image iconType="3" name="/icon/parchment.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="  See Loan History"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -269,7 +269,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="0" y="750" width="440" height="80"/>
+              <AbsoluteConstraints x="0" y="730" width="440" height="100"/>
             </Constraint>
           </Constraints>
 
@@ -336,7 +336,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="110" y="190" width="140" height="50"/>
+              <AbsoluteConstraints x="100" y="190" width="140" height="50"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -365,7 +365,7 @@
                   <Color blue="69" green="d3" red="ff" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/icon/Author.png"/>
+                  <Image iconType="3" name="/icon/return.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="  Return Book"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">

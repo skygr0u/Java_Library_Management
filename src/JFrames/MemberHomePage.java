@@ -110,12 +110,12 @@ public class MemberHomePage extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Dashboard");
-        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 0, 220, 50));
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, 220, 50));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/dashboard (1).png"))); // NOI18N
         jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, -1, -1));
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 440, 60));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 440, 80));
 
         jPanel6.setBackground(new java.awt.Color(238, 238, 238));
 
@@ -135,7 +135,7 @@ public class MemberHomePage extends javax.swing.JFrame {
         Name.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         Name.setForeground(new java.awt.Color(255, 211, 105));
         Name.setText("Name");
-        jPanel1.add(Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 190, 140, 50));
+        jPanel1.add(Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 190, 140, 50));
 
         jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Account_icon.png"))); // NOI18N
         jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, -1, -1));
@@ -149,7 +149,7 @@ public class MemberHomePage extends javax.swing.JFrame {
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 21)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 211, 105));
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/manager.png"))); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/issue_book.png"))); // NOI18N
         jLabel8.setText("   Loan Book");
         jLabel8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -172,7 +172,7 @@ public class MemberHomePage extends javax.swing.JFrame {
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 21)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 211, 105));
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Author.png"))); // NOI18N
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/parchment.png"))); // NOI18N
         jLabel9.setText("  See Loan History");
         jLabel9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -188,7 +188,7 @@ public class MemberHomePage extends javax.swing.JFrame {
         });
         panel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 370, -1));
 
-        jPanel1.add(panel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 570, 440, 70));
+        jPanel1.add(panel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 580, 440, 70));
 
         panel3.setBackground(new java.awt.Color(57, 62, 70));
         panel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -226,19 +226,19 @@ public class MemberHomePage extends javax.swing.JFrame {
         });
         panel3.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, -1, -1));
 
-        jPanel1.add(panel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 750, 440, 80));
+        jPanel1.add(panel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 730, 440, 100));
 
         jLabel20.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(255, 255, 255));
         jLabel20.setText("Welcome,");
-        jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, 140, 50));
+        jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, 140, 50));
 
         panel5.setBackground(new java.awt.Color(34, 40, 49));
         panel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 21)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 211, 105));
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Author.png"))); // NOI18N
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/return.png"))); // NOI18N
         jLabel12.setText("  Return Book");
         jLabel12.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel12.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -368,9 +368,9 @@ public class MemberHomePage extends javax.swing.JFrame {
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
         // TODO add your handling code here:
-        SubsManager subsmanager = new SubsManager();
-        subsmanager.setVisible(true);
-        dispose();
+        MemberLoanBookPage memberloanbookpage = new MemberLoanBookPage(memberId);
+        memberloanbookpage.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jLabel8MouseClicked
 
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
@@ -427,10 +427,12 @@ public class MemberHomePage extends javax.swing.JFrame {
 
     private void jLabel12MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseEntered
         // TODO add your handling code here:
+        panel5.setBackground(mouseEnterColor);
     }//GEN-LAST:event_jLabel12MouseEntered
 
     private void jLabel12MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseExited
         // TODO add your handling code here:
+        panel5.setBackground(mouseExitColor);
     }//GEN-LAST:event_jLabel12MouseExited
 
     public static void main(String args[]) {
