@@ -174,6 +174,11 @@ public class MemberHomePage extends javax.swing.JFrame {
         jPanel1.add(panel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, 440, 70));
 
         panel2.setBackground(new java.awt.Color(34, 40, 49));
+        panel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panel2MouseClicked(evt);
+            }
+        });
         panel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 21)); // NOI18N
@@ -240,6 +245,11 @@ public class MemberHomePage extends javax.swing.JFrame {
         jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, 140, 50));
 
         panel5.setBackground(new java.awt.Color(34, 40, 49));
+        panel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panel5MouseClicked(evt);
+            }
+        });
         panel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 21)); // NOI18N
@@ -453,7 +463,7 @@ public class MemberHomePage extends javax.swing.JFrame {
         // TODO add your handling code here:
         MemberHistoryLoanBookPage memberhistoryloanbookpage = new MemberHistoryLoanBookPage(memberId);
         memberhistoryloanbookpage.setVisible(true);
-        this.dispose();
+        dispose();
     }//GEN-LAST:event_jLabel9MouseClicked
 
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
@@ -520,6 +530,14 @@ public class MemberHomePage extends javax.swing.JFrame {
         memberoverdueloans.setVisible(true);
         dispose();
     }//GEN-LAST:event_jLabel1MouseClicked
+
+    private void panel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panel2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_panel2MouseClicked
+
+    private void panel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panel5MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_panel5MouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

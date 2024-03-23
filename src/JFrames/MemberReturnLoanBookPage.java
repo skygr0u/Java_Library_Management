@@ -285,7 +285,6 @@ public class MemberReturnLoanBookPage extends javax.swing.JFrame {
 }
 
 
-    
     //return details to database
     public boolean returnLoan() {
         boolean updated = false;
