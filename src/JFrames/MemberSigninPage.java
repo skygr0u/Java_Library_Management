@@ -1,6 +1,7 @@
 package JFrames;
 import biblio.*;
 import com.sun.jdi.connect.spi.Connection;
+import java.security.MessageDigest;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,37 +17,54 @@ public class MemberSigninPage extends javax.swing.JFrame {
         initComponents();
     }
     
-    public boolean insertSignupDetails() {
-    boolean isAdded = false;
-    String name = tfUsername.getText();
-    String pwd = tfpwd.getText();
-    String email = tfEmail.getText();
-    String contact = tfContact.getText(); // Get the contact information
-
-    try {
-        java.sql.Connection con = DatabaseConnection.getConnection();
-        String sql = "INSERT INTO abonnés (username, password, email, contact) VALUES (?, ?, ?, ?)";
-        PreparedStatement pst = con.prepareStatement(sql);
-        pst.setString(1, name);
-        pst.setString(2, pwd);
-        pst.setString(3, email);
-        pst.setString(4, contact); // Set the contact information
-
-        int rowCount = pst.executeUpdate();
-        if (rowCount > 0) {
-            isAdded = true;
-        } else {
-            isAdded = false;
+    public String convertToMD5(String password) {
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            md.update(password.getBytes());
+            byte[] digest = md.digest();
+            StringBuilder sb = new StringBuilder();
+            for (byte b : digest) {
+                sb.append(String.format("%02x", b & 0xff));
+            }
+            return sb.toString();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return null;
         }
-    } catch (Exception e) {
-        e.printStackTrace();
-        return false; 
     }
-    return isAdded;
-}
+
+    public boolean insertSignupDetails() {
+        boolean isAdded = false;
+        String name = tfUsername.getText();
+        String pwd = tfpwd.getText();
+        String email = tfEmail.getText();
+        String contact = tfContact.getText();
+
+        String hashedPassword = convertToMD5(pwd);
+
+        try {
+            java.sql.Connection con = DatabaseConnection.getConnection();
+            String sql = "INSERT INTO abonnés (username, password, email, contact) VALUES (?, ?, ?, ?)";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1, name);
+            pst.setString(2, hashedPassword);
+            pst.setString(3, email);
+            pst.setString(4, contact);
+
+            int rowCount = pst.executeUpdate();
+            if (rowCount > 0) {
+                isAdded = true;
+            } else {
+                isAdded = false;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false; 
+        }
+        return isAdded;
+    }
 
 
-    
     public boolean validateSignup(){
         String name = tfpwd.getText();
         String pwd = tfpwd.getText();

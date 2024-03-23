@@ -1,6 +1,7 @@
 package JFrames;
 import biblio.*;
 import com.sun.jdi.connect.spi.Connection;
+import java.security.MessageDigest;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,14 +17,31 @@ public class AuthorSigninPage extends javax.swing.JFrame {
         initComponents();
     }
     
+    public String convertToMD5(char[] passwordChars) {
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            md.update(new String(passwordChars).getBytes());
+            byte[] digest = md.digest();
+            StringBuilder sb = new StringBuilder();
+            for (byte b : digest) {
+                sb.append(String.format("%02x", b & 0xff));
+            }
+            return sb.toString();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return null;
+        }
+    }
+
     public boolean insertSignupDetails() {
         boolean isAdded = false;
         String lastName = tfLastName.getText();
         String firstName = tfFirstName.getText();
         String username = tfUsername.getText();
         char[] passwordChars = tfPassword.getPassword();
-        String pwd = new String(passwordChars);
         String email = tfEmail.getText();
+
+        String hashedPassword = convertToMD5(passwordChars);
 
         try {
             java.sql.Connection con = DatabaseConnection.getConnection();
@@ -32,7 +50,7 @@ public class AuthorSigninPage extends javax.swing.JFrame {
             pst.setString(1, lastName);
             pst.setString(2, firstName);
             pst.setString(3, username);
-            pst.setString(4, pwd);
+            pst.setString(4, hashedPassword);
             pst.setString(5, email);
 
             int rowCount = pst.executeUpdate();
@@ -46,7 +64,7 @@ public class AuthorSigninPage extends javax.swing.JFrame {
             return false;
         }
         return isAdded;
-}
+    }
 
     
     public boolean validateSignup(){

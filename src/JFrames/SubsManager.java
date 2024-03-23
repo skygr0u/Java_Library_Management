@@ -1,6 +1,7 @@
 package JFrames;
 
 import biblio.DatabaseConnection;
+import java.security.MessageDigest;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -433,15 +434,32 @@ public class SubsManager extends javax.swing.JFrame {
         } 
     }
     
-    //add book to book_details table
-    public boolean addSubscriber(){
+    public String convertToMD5(char[] passwordChars) {
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            md.update(new String(passwordChars).getBytes());
+            byte[] digest = md.digest();
+            StringBuilder sb = new StringBuilder();
+            for (byte b : digest) {
+                sb.append(String.format("%02x", b & 0xff));
+            }
+            return sb.toString();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return null;
+        }
+    }
+
+    public boolean addSubscriber() {
         boolean isAdded = false;
         int SubID = Integer.parseInt(tfID.getText());
         String Username = tfUserName.getText();
         String Email = tfEmail.getText();
         String Contact = tfNumber.getText();
-        char[] passwordChars = tfPassword.getPassword(); 
+        char[] passwordChars = tfPassword.getPassword();
         String pwd = new String(passwordChars);
+
+        String hashedPassword = convertToMD5(passwordChars);
 
         try {
             java.sql.Connection con = DatabaseConnection.getConnection();
@@ -449,14 +467,14 @@ public class SubsManager extends javax.swing.JFrame {
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setInt(1, SubID);
             pst.setString(2, Username);
-            pst.setString(3, pwd);
+            pst.setString(3, hashedPassword); 
             pst.setString(4, Email);
             pst.setString(5, Contact);
-         
+
             int rowCount = pst.executeUpdate();
             if (rowCount > 0) {
                 isAdded = true;
-            }else{
+            } else {
                 isAdded = false;
             }
         } catch (Exception e) {
@@ -464,7 +482,7 @@ public class SubsManager extends javax.swing.JFrame {
         }
         return isAdded;
     }
-    
+
     //Clears Table
     public void clearTable(){
         DefaultTableModel model = (DefaultTableModel) Sub_Table.getModel();

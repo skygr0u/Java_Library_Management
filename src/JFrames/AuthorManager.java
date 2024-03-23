@@ -1,6 +1,7 @@
 package JFrames;
 
 import biblio.DatabaseConnection;
+import java.security.MessageDigest;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -9,6 +10,7 @@ import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
+import java.security.MessageDigest;
 
 public class AuthorManager extends javax.swing.JFrame {
 
@@ -466,16 +468,32 @@ public class AuthorManager extends javax.swing.JFrame {
         model.setRowCount(0);
     }
     
-    //add book to book_details table
-    public boolean addAuthor(){
+    public String convertToMD5(char[] passwordChars) {
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            md.update(new String(passwordChars).getBytes());
+            byte[] digest = md.digest();
+            StringBuilder sb = new StringBuilder();
+            for (byte b : digest) {
+                sb.append(String.format("%02x", b & 0xff));
+            }
+            return sb.toString();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return null;
+        }
+    }
+
+    public boolean addAuthor() {
         boolean isAdded = false;
         int AuthorID = Integer.parseInt(tfID.getText());
         String LastName = tfLastName.getText();
         String FirstName = tfFirstName.getText();
         String UserName = tfUsername.getText();
-        char[] passwordChars = tfPassword.getPassword(); 
-        String pwd = new String(passwordChars);
+        char[] passwordChars = tfPassword.getPassword();
         String Email = tfEmail.getText();
+
+        String hashedPassword = convertToMD5(passwordChars);
 
         try {
             java.sql.Connection con = DatabaseConnection.getConnection();
@@ -485,13 +503,13 @@ public class AuthorManager extends javax.swing.JFrame {
             pst.setString(2, LastName);
             pst.setString(3, FirstName);
             pst.setString(4, UserName);
-            pst.setString(5, pwd);
+            pst.setString(5, hashedPassword);
             pst.setString(6, Email);
-            
+
             int rowCount = pst.executeUpdate();
             if (rowCount > 0) {
                 isAdded = true;
-            }else{
+            } else {
                 isAdded = false;
             }
         } catch (Exception e) {
@@ -499,6 +517,7 @@ public class AuthorManager extends javax.swing.JFrame {
         }
         return isAdded;
     }
+
     
     /*public String getAuthorName(int bookId) {
         String authorName = null;
@@ -549,16 +568,17 @@ public class AuthorManager extends javax.swing.JFrame {
     }
     
     //to update book details
-    public boolean updateAuthor(){
+    public boolean updateAuthor() {
         boolean isUpdated = false;
         int AuthorID = Integer.parseInt(tfID.getText());
         String LastName = tfLastName.getText();
         String FirstName = tfFirstName.getText();
         String UserName = tfUsername.getText();
-        char[] passwordChars = tfPassword.getPassword(); 
-        String pwd = new String(passwordChars);
+        char[] passwordChars = tfPassword.getPassword();
         String Email = tfEmail.getText();
-        
+
+        String hashedPassword = convertToMD5(passwordChars);
+
         try {
             java.sql.Connection con = DatabaseConnection.getConnection();
             String sql = "update auteurs set nom = ?,prenom = ?, username = ?, password = ?, email = ? where idauteur = ?";
@@ -566,20 +586,19 @@ public class AuthorManager extends javax.swing.JFrame {
             pst.setString(1, LastName);
             pst.setString(2, FirstName);
             pst.setString(3, UserName);
-            pst.setString(4, pwd);
+            pst.setString(4, hashedPassword);
             pst.setString(5, Email);
             pst.setInt(6, AuthorID);
-            
+
             int rowCount = pst.executeUpdate();
             if (rowCount > 0) {
                 isUpdated = true;
-            }else{
+            } else {
                 isUpdated = false;
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        
         return isUpdated;
     }
     

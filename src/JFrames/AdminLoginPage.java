@@ -1,6 +1,7 @@
 package JFrames;
 
 import biblio.DatabaseConnection;
+import java.security.MessageDigest;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -33,27 +34,43 @@ public class AdminLoginPage extends javax.swing.JFrame {
         return true;
     }
     
-    //verification
+    public String convertToMD5(String password) {
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            md.update(password.getBytes());
+            byte[] digest = md.digest();
+            StringBuilder sb = new StringBuilder();
+            for (byte b : digest) {
+                sb.append(String.format("%02x", b & 0xff));
+            }
+            return sb.toString();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return null;
+        }
+    }
+
     public void login() {
         String name = tfUsername.getText();
         char[] passwordChars = tfPassword.getPassword(); 
         String pwd = new String(passwordChars);
 
+        String hashedPassword = convertToMD5(pwd);
+
         try {
             java.sql.Connection con = DatabaseConnection.getConnection();
-            PreparedStatement pst = con.prepareStatement("select * from admins where username = ? and password = ?");
+            PreparedStatement pst = con.prepareStatement("SELECT * FROM admins WHERE username = ? AND password = ?");
 
             pst.setString(1, name);
-            pst.setString(2, pwd);
+            pst.setString(2, hashedPassword);
 
             ResultSet rs = pst.executeQuery();
             if (rs.next()) {
                 int idAdmin = rs.getInt("idAdmin"); 
                 AdminCodeVerification admincodeverification = new AdminCodeVerification(idAdmin);
                 admincodeverification.setVisible(true);
-
             } else {
-                JOptionPane.showMessageDialog(this, "incorrect username or password", "Error", JOptionPane.ERROR_MESSAGE);            
+                JOptionPane.showMessageDialog(this, "Incorrect username or password", "Error", JOptionPane.ERROR_MESSAGE);            
             }
         } catch (Exception e) {
             e.printStackTrace();

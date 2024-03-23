@@ -148,6 +148,11 @@ public class MemberHomePage extends javax.swing.JFrame {
 
         jLabel30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/gear.png"))); // NOI18N
         jLabel30.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel30.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel30MouseClicked(evt);
+            }
+        });
         jPanel1.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         panel1.setBackground(new java.awt.Color(34, 40, 49));
@@ -538,6 +543,12 @@ public class MemberHomePage extends javax.swing.JFrame {
     private void panel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panel5MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_panel5MouseClicked
+
+    private void jLabel30MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel30MouseClicked
+        // TODO add your handling code here:
+        MemberSettingsPage membersettingspage = new MemberSettingsPage(memberId);
+        membersettingspage.setVisible(true);
+    }//GEN-LAST:event_jLabel30MouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
