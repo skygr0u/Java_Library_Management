@@ -77,7 +77,7 @@ public class OverDueLoans extends javax.swing.JFrame {
         jLabel22.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(255, 255, 255));
         jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/expired.png"))); // NOI18N
-        jLabel22.setText("Loaned Not Returned");
+        jLabel22.setText("Loans Not Returned");
         jPanel1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 0, 620, 130));
 
         jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/arrow.png"))); // NOI18N

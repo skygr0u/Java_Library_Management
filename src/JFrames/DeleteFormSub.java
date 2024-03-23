@@ -51,6 +51,7 @@ public class DeleteFormSub extends javax.swing.JFrame {
         setUndecorated(true);
 
         panel1.setBackground(new java.awt.Color(34, 40, 49));
+        panel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         panel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panel2.setBackground(new java.awt.Color(57, 62, 70));

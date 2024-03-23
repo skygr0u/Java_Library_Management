@@ -57,10 +57,6 @@ public class ManageLoansPage extends javax.swing.JFrame {
         tfstatus = new app.bolivia.swing.JCTextField();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        panel10 = new java.awt.Panel();
-        jLabel49 = new javax.swing.JLabel();
-        panel11 = new java.awt.Panel();
-        jLabel50 = new javax.swing.JLabel();
         panel7 = new java.awt.Panel();
         jLabel16 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -279,52 +275,6 @@ public class ManageLoansPage extends javax.swing.JFrame {
         jLabel14.setText("Status");
         jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 280, 300, 40));
 
-        panel10.setBackground(new java.awt.Color(34, 40, 49));
-        panel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel49.setFont(new java.awt.Font("Segoe UI", 0, 21)); // NOI18N
-        jLabel49.setForeground(new java.awt.Color(255, 211, 105));
-        jLabel49.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/check-list.png"))); // NOI18N
-        jLabel49.setText("  Library Status");
-        jLabel49.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel49.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel49MouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel49MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel49MouseExited(evt);
-            }
-        });
-        panel10.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 280, -1));
-
-        panel11.setBackground(new java.awt.Color(34, 40, 49));
-        panel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel50.setFont(new java.awt.Font("Segoe UI", 0, 21)); // NOI18N
-        jLabel50.setForeground(new java.awt.Color(255, 211, 105));
-        jLabel50.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/check-list.png"))); // NOI18N
-        jLabel50.setText("  Library Status");
-        jLabel50.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel50.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel50MouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel50MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel50MouseExited(evt);
-            }
-        });
-        panel11.add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 370, -1));
-
-        panel10.add(panel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 970, 440, 70));
-
-        jPanel1.add(panel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 300, 70));
-
         panel7.setBackground(new java.awt.Color(34, 40, 49));
         panel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -534,32 +484,6 @@ public class ManageLoansPage extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_DeleteMouseClicked
 
-    private void jLabel49MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel49MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel49MouseClicked
-
-    private void jLabel49MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel49MouseEntered
-        // TODO add your handling code here:
-        panel10.setBackground(mouseEnterColor);
-    }//GEN-LAST:event_jLabel49MouseEntered
-
-    private void jLabel49MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel49MouseExited
-        // TODO add your handling code here:
-        panel10.setBackground(mouseExitColor);
-    }//GEN-LAST:event_jLabel49MouseExited
-
-    private void jLabel50MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel50MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel50MouseClicked
-
-    private void jLabel50MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel50MouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel50MouseEntered
-
-    private void jLabel50MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel50MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel50MouseExited
-
     private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
         // TODO add your handling code here:
         LoanedBooksPage loanedbookspage = new LoanedBooksPage();
@@ -635,9 +559,7 @@ public class ManageLoansPage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -647,8 +569,6 @@ public class ManageLoansPage extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane2;
-    private java.awt.Panel panel10;
-    private java.awt.Panel panel11;
     private java.awt.Panel panel7;
     private app.bolivia.swing.JCTextField tfLoanID;
     private app.bolivia.swing.JCTextField tfstatus;

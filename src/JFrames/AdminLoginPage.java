@@ -48,10 +48,9 @@ public class AdminLoginPage extends javax.swing.JFrame {
 
             ResultSet rs = pst.executeQuery();
             if (rs.next()) {
-                JOptionPane.showMessageDialog(this, "login successful");
-                AdminHomePage home = new AdminHomePage();
-                home.setVisible(true);
-                this.dispose();
+                int idAdmin = rs.getInt("idAdmin"); 
+                AdminCodeVerification admincodeverification = new AdminCodeVerification(idAdmin);
+                admincodeverification.setVisible(true);
 
             } else {
                 JOptionPane.showMessageDialog(this, "incorrect username or password", "Error", JOptionPane.ERROR_MESSAGE);            
