@@ -50,6 +50,7 @@ public class MemberHomePage extends javax.swing.JFrame {
         initComponents();
         this.memberId = memberId;
         Name.setText(getMemberName());
+        setDataToCard(memberId);
     }
     
     String Email, Username, Contact;
@@ -75,6 +76,7 @@ public class MemberHomePage extends javax.swing.JFrame {
         jLabel20 = new javax.swing.JLabel();
         panel5 = new java.awt.Panel();
         jLabel12 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
@@ -94,6 +96,10 @@ public class MemberHomePage extends javax.swing.JFrame {
         jLabel55 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
+        jPanel21 = new javax.swing.JPanel();
+        Num_Loans = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -165,7 +171,7 @@ public class MemberHomePage extends javax.swing.JFrame {
         });
         panel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 370, -1));
 
-        jPanel1.add(panel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 390, 440, 70));
+        jPanel1.add(panel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, 440, 70));
 
         panel2.setBackground(new java.awt.Color(34, 40, 49));
         panel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -188,7 +194,7 @@ public class MemberHomePage extends javax.swing.JFrame {
         });
         panel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 370, -1));
 
-        jPanel1.add(panel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 580, 440, 70));
+        jPanel1.add(panel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 590, 440, 70));
 
         panel3.setBackground(new java.awt.Color(57, 62, 70));
         panel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -226,7 +232,7 @@ public class MemberHomePage extends javax.swing.JFrame {
         });
         panel3.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, -1, -1));
 
-        jPanel1.add(panel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 730, 440, 100));
+        jPanel1.add(panel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 740, 440, 90));
 
         jLabel20.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(255, 255, 255));
@@ -254,7 +260,16 @@ public class MemberHomePage extends javax.swing.JFrame {
         });
         panel5.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 370, -1));
 
-        jPanel1.add(panel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 480, 440, 70));
+        jPanel1.add(panel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 490, 440, 70));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/alarm.png"))); // NOI18N
+        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 830));
 
@@ -304,37 +319,37 @@ public class MemberHomePage extends javax.swing.JFrame {
         jPanel7.setBackground(new java.awt.Color(34, 40, 49));
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel43.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BooksCover/ToKillAMokinbird.jpg"))); // NOI18N
-        jPanel7.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 280, -1, 240));
+        jLabel43.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BooksCover/wuthering heights.jpg"))); // NOI18N
+        jPanel7.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 300, -1, 240));
 
         jLabel44.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BooksCover/TheGreatGatsby.jpg"))); // NOI18N
-        jPanel7.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 10, -1, -1));
+        jPanel7.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 30, -1, -1));
 
         jLabel45.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BooksCover/1984.jpg"))); // NOI18N
-        jPanel7.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 10, -1, -1));
+        jPanel7.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 30, -1, -1));
 
         jLabel47.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BooksCover/LordOfTheRings.jpg"))); // NOI18N
-        jPanel7.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 10, 150, -1));
+        jPanel7.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 30, 150, -1));
 
         jLabel46.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BooksCover/HarryPotter.jpg"))); // NOI18N
-        jPanel7.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, -1, -1));
+        jPanel7.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, -1, -1));
 
         jLabel51.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BooksCover/ToKillAMokinbird.jpg"))); // NOI18N
-        jPanel7.add(jLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, 240));
+        jPanel7.add(jLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, 240));
 
-        jLabel52.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BooksCover/ToKillAMokinbird.jpg"))); // NOI18N
-        jPanel7.add(jLabel52, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, -1, 240));
+        jLabel52.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BooksCover/Frankenstein.jpg"))); // NOI18N
+        jPanel7.add(jLabel52, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, -1, 240));
 
-        jLabel53.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BooksCover/ToKillAMokinbird.jpg"))); // NOI18N
-        jPanel7.add(jLabel53, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 280, -1, 240));
+        jLabel53.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BooksCover/peace and war.jpg"))); // NOI18N
+        jPanel7.add(jLabel53, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 300, -1, 240));
 
-        jLabel54.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BooksCover/ToKillAMokinbird.jpg"))); // NOI18N
-        jPanel7.add(jLabel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 280, -1, 240));
+        jLabel54.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BooksCover/Don-Quixote-COVER.jpg"))); // NOI18N
+        jPanel7.add(jLabel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 300, -1, 240));
 
-        jLabel55.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BooksCover/ToKillAMokinbird.jpg"))); // NOI18N
-        jPanel7.add(jLabel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 280, -1, 240));
+        jLabel55.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BooksCover/Lolita.jpg"))); // NOI18N
+        jPanel7.add(jLabel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 300, -1, 240));
 
-        jPanel2.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, 850, 560));
+        jPanel2.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, 850, 560));
 
         jPanel8.setBackground(new java.awt.Color(57, 62, 70));
         jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -345,13 +360,71 @@ public class MemberHomePage extends javax.swing.JFrame {
         jLabel17.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 4, 0, new java.awt.Color(255, 255, 255)));
         jPanel8.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 300, -1));
 
-        jPanel2.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 850, 70));
+        jPanel2.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 850, 70));
+
+        jPanel21.setBackground(new java.awt.Color(57, 62, 70));
+        jPanel21.setBorder(javax.swing.BorderFactory.createMatteBorder(15, 0, 15, 0, new java.awt.Color(255, 211, 105)));
+        jPanel21.setPreferredSize(new java.awt.Dimension(260, 1));
+        jPanel21.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Num_Loans.setBackground(new java.awt.Color(102, 102, 102));
+        Num_Loans.setFont(new java.awt.Font("Segoe Pro Black", 0, 50)); // NOI18N
+        Num_Loans.setForeground(new java.awt.Color(255, 255, 255));
+        Num_Loans.setText("10");
+        jPanel21.add(Num_Loans, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 71, -1));
+
+        jLabel31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/bookshelf.png"))); // NOI18N
+        jPanel21.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
+
+        jLabel40.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel40.setFont(new java.awt.Font("Segoe Pro", 2, 20)); // NOI18N
+        jLabel40.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel40.setText("Total Loans");
+        jLabel40.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
+        jPanel21.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 110, -1));
+
+        jPanel2.add(jPanel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 150, 130));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 0, 1110, 830));
 
         setSize(new java.awt.Dimension(1550, 825));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    public void setDataToCard(int memberId) {
+        java.sql.Statement st = null;
+        ResultSet rs = null;
+        Connection con = null;
+
+        try {
+            con = DatabaseConnection.getConnection();
+            st = con.createStatement();
+            String sql = "SELECT COUNT(*) AS numLoans FROM emprunts WHERE idabonné = ?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setInt(1, memberId);
+            rs = pst.executeQuery();
+            if (rs.next()) {
+                Num_Loans.setText(Integer.toString(rs.getInt("numLoans")));
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (st != null) {
+                    st.close();
+                }
+                if (con != null) {
+                    con.close();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+}
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
         System.exit(0);
@@ -364,6 +437,9 @@ public class MemberHomePage extends javax.swing.JFrame {
 
     private void jLabel38MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel38MouseClicked
         // TODO add your handling code here:
+        MemberLoginPage memberloginpage = new MemberLoginPage();
+        memberloginpage.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jLabel38MouseClicked
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
@@ -375,9 +451,9 @@ public class MemberHomePage extends javax.swing.JFrame {
 
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
         // TODO add your handling code here:
-        AuthorManager authormanager = new AuthorManager();
-        authormanager.setVisible(true);
-        dispose();
+        MemberHistoryLoanBookPage memberhistoryloanbookpage = new MemberHistoryLoanBookPage(memberId);
+        memberhistoryloanbookpage.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jLabel9MouseClicked
 
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
@@ -423,6 +499,9 @@ public class MemberHomePage extends javax.swing.JFrame {
 
     private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
         // TODO add your handling code here:
+        MemberReturnLoanBookPage memberreturnloanbookpage = new MemberReturnLoanBookPage(memberId);
+        memberreturnloanbookpage.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jLabel12MouseClicked
 
     private void jLabel12MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseEntered
@@ -434,6 +513,13 @@ public class MemberHomePage extends javax.swing.JFrame {
         // TODO add your handling code here:
         panel5.setBackground(mouseExitColor);
     }//GEN-LAST:event_jLabel12MouseExited
+
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        // TODO add your handling code here:
+        MemberOverDueLoans memberoverdueloans = new MemberOverDueLoans(memberId);
+        memberoverdueloans.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jLabel1MouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -471,6 +557,8 @@ public class MemberHomePage extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Name;
+    private javax.swing.JLabel Num_Loans;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel15;
@@ -479,8 +567,10 @@ public class MemberHomePage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
@@ -497,6 +587,7 @@ public class MemberHomePage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel21;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;

@@ -72,6 +72,9 @@ public class MemberLoanBookPage extends javax.swing.JFrame {
         date_dueDate = new rojeru_san.componentes.RSDateChooser();
         jLabel1 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
+        tfAuthorName = new app.bolivia.swing.JCTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         Book_Table = new rojeru_san.complementos.RSTableMetro();
@@ -128,13 +131,13 @@ public class MemberLoanBookPage extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 173, 181));
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/return-to-the-past.png"))); // NOI18N
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 300, 80, 70));
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 310, 80, 70));
 
         jLabel12.setBackground(new java.awt.Color(0, 173, 181));
         jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(0, 173, 181));
         jLabel12.setText("Return Date");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 280, 300, 40));
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 290, 300, 40));
 
         jLabel9.setBackground(new java.awt.Color(0, 173, 181));
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
@@ -158,25 +161,24 @@ public class MemberLoanBookPage extends javax.swing.JFrame {
                 BookTitleFocusLost(evt);
             }
         });
-        jPanel1.add(BookTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 250, 290, 50));
+        jPanel1.add(BookTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 190, 290, 50));
 
         jLabel6.setBackground(new java.awt.Color(0, 173, 181));
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 173, 181));
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/notebook.png"))); // NOI18N
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 240, 80, 70));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, 70, 70));
 
         jLabel13.setBackground(new java.awt.Color(0, 173, 181));
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(0, 173, 181));
         jLabel13.setText("Book Title");
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 220, 300, 40));
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 160, 300, 40));
 
         AddBtn.setBackground(new java.awt.Color(57, 62, 70));
         AddBtn.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         AddBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/issue_book.png"))); // NOI18N
         AddBtn.setText("Loan Book");
-        AddBtn.setActionCommand("Loan Book");
         AddBtn.setColorHover(new java.awt.Color(255, 211, 105));
         AddBtn.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
         AddBtn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -210,7 +212,7 @@ public class MemberLoanBookPage extends javax.swing.JFrame {
         date_dueDate.setColorButtonHover(new java.awt.Color(255, 211, 105));
         date_dueDate.setColorForeground(new java.awt.Color(0, 0, 0));
         date_dueDate.setPlaceholder("Enter Return Date...");
-        jPanel1.add(date_dueDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 320, 270, -1));
+        jPanel1.add(date_dueDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 330, 270, -1));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/maximaze.png"))); // NOI18N
@@ -230,6 +232,25 @@ public class MemberLoanBookPage extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, -1, -1));
+
+        tfAuthorName.setBackground(new java.awt.Color(34, 40, 49));
+        tfAuthorName.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+        tfAuthorName.setForeground(new java.awt.Color(255, 255, 255));
+        tfAuthorName.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        tfAuthorName.setPhColor(new java.awt.Color(255, 255, 255));
+        jPanel1.add(tfAuthorName, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 320, 290, 50));
+
+        jLabel7.setBackground(new java.awt.Color(0, 173, 181));
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 173, 181));
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/pass.png"))); // NOI18N
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, 80, 70));
+
+        jLabel8.setBackground(new java.awt.Color(0, 173, 181));
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 173, 181));
+        jLabel8.setText("Author Name");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 280, 300, 40));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1550, 440));
 
@@ -277,13 +298,13 @@ public class MemberLoanBookPage extends javax.swing.JFrame {
             while(rs.next()){
                 String bookID = rs.getString("idlivre");
                 String bookTitle = rs.getString("titre");
-                String author = rs.getString("nom");
+                String AuthorName = rs.getString("nom") + " " + rs.getString("prenom");
                 String ISBN = rs.getString("isbn");
                 String PublicationDate = rs.getString("datepublication");
                 String dispo = rs.getString("disponibilite");
                 int quantity = rs.getInt("quantite");
                 
-                Object[] obj = {bookTitle,author,ISBN,PublicationDate,dispo};
+                Object[] obj = {bookTitle,AuthorName,ISBN,PublicationDate,dispo};
                 model =(DefaultTableModel) Book_Table.getModel();
                 model.addRow(obj);
             }
@@ -483,12 +504,14 @@ public class MemberLoanBookPage extends javax.swing.JFrame {
         TableModel model = Book_Table.getModel();
         
         BookTitle.setText(model.getValueAt(rowNo, 0).toString());
+        tfAuthorName.setText(model.getValueAt(rowNo, 1).toString());
 
     }//GEN-LAST:event_Book_TableMouseClicked
 
     private void jLabel20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel20MouseClicked
         // TODO add your handling code here:
         BookTitle.setText("");
+        tfAuthorName.setText("");
     }//GEN-LAST:event_jLabel20MouseClicked
 
     private void BookTitleFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_BookTitleFocusLost
@@ -598,9 +621,12 @@ public class MemberLoanBookPage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
+    private app.bolivia.swing.JCTextField tfAuthorName;
     // End of variables declaration//GEN-END:variables
 }

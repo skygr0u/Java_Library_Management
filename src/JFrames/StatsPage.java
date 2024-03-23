@@ -21,7 +21,7 @@ public class StatsPage extends javax.swing.JFrame {
     public StatsPage() {
         initComponents();
         showPieChartBooks();
-        showPieChartAuthor();
+        showPieChartMember();
     }
     
     public void showPieChartBooks() {
@@ -55,7 +55,7 @@ public class StatsPage extends javax.swing.JFrame {
         LoanedBooks.validate();
     }
     
-    public void showPieChartAuthor() {
+    public void showPieChartMember() {
 
         //create dataset
         DefaultPieDataset barDataset = new DefaultPieDataset();
