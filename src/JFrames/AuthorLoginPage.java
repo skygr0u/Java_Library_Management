@@ -69,7 +69,7 @@ public class AuthorLoginPage extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "login successful");
                 int idAuteur = rs.getInt("idAuteur"); 
                 
-                AuthorPage authorpage = new AuthorPage(idAuteur);
+                AuthorHomePage authorpage = new AuthorHomePage(idAuteur);
                 authorpage.setVisible(true);
                 this.dispose();
 

@@ -10,13 +10,13 @@ import java.sql.ResultSet;
 import java.util.Arrays;
 import javax.swing.JOptionPane;
 
-public class MemberChangePwdPage extends javax.swing.JFrame {
+public class AuthorChangePwdPage extends javax.swing.JFrame {
 
-    private int idMemberId;
+    private int AuthorId;
     
-    public MemberChangePwdPage(int idmemberId) {
+    public AuthorChangePwdPage(int AuthorId) {
         initComponents();
-        this.idMemberId = idmemberId;
+        this.AuthorId = AuthorId;
     }
     
     
@@ -180,9 +180,9 @@ public class MemberChangePwdPage extends javax.swing.JFrame {
     private boolean checkOldPassword(char[] oldPasswordChars) {
         try {
             Connection con = DatabaseConnection.getConnection();
-            String sql = "SELECT password FROM abonnés WHERE idabonné = ?";
+            String sql = "SELECT password FROM auteurs WHERE idauteur = ?";
             PreparedStatement pst = con.prepareStatement(sql);
-            pst.setInt(1, idMemberId);
+            pst.setInt(1, AuthorId);
             ResultSet rs = pst.executeQuery();
             if (rs.next()) {
                 String storedPassword = rs.getString("password");
@@ -218,10 +218,10 @@ public class MemberChangePwdPage extends javax.swing.JFrame {
         try {
             String newPassword = convertToMD5(newPasswordChars);
             Connection con = DatabaseConnection.getConnection();
-            String sql = "UPDATE abonnés SET password = ? WHERE idabonné = ?";
+            String sql = "UPDATE auteurs SET password = ? WHERE idauteur = ?";
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setString(1, newPassword);
-            pst.setInt(2, idMemberId);
+            pst.setInt(2, AuthorId);
             pst.executeUpdate();
             pst.close();
             con.close();
@@ -255,8 +255,8 @@ public class MemberChangePwdPage extends javax.swing.JFrame {
 
     private void jLabel19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseClicked
         // TODO add your handling code here:
-        MemberHomePage memberhomepage = new MemberHomePage(idMemberId);
-        memberhomepage.setVisible(true);
+        AuthorHomePage AuthorHomePage = new AuthorHomePage(AuthorId);
+        AuthorHomePage.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jLabel19MouseClicked
 
@@ -302,14 +302,18 @@ public class MemberChangePwdPage extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MemberChangePwdPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AuthorChangePwdPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MemberChangePwdPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AuthorChangePwdPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MemberChangePwdPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AuthorChangePwdPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MemberChangePwdPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AuthorChangePwdPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>

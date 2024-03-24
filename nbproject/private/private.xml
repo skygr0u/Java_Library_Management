@@ -3,11 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/SKYMIL/Documents/NetBeansProjects/Biblio/src/JFrames/BookManager.java</file>
+            <file>file:/C:/Users/SKYMIL/Documents/NetBeansProjects/Biblio/src/JFrames/AuthorHomePage.java</file>
             <file>file:/C:/Users/SKYMIL/Documents/NetBeansProjects/Biblio/src/JFrames/AdminLoginPage.java</file>
-            <file>file:/C:/Users/SKYMIL/Documents/NetBeansProjects/Biblio/src/JFrames/AdminHomePage.java</file>
-            <file>file:/C:/Users/SKYMIL/Documents/NetBeansProjects/Biblio/src/JFrames/MemberLoginPage.java</file>
-            <file>file:/C:/Users/SKYMIL/Documents/NetBeansProjects/Biblio/src/JFrames/MemberHomePage.java</file>
+            <file>file:/C:/Users/SKYMIL/Documents/NetBeansProjects/Biblio/src/JFrames/StatsPage.java</file>
+            <file>file:/C:/Users/SKYMIL/Documents/NetBeansProjects/Biblio/src/JFrames/AuthorLoginPage.java</file>
         </group>
     </open-files>
 </project-private>
