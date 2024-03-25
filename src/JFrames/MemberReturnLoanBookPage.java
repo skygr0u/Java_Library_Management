@@ -314,6 +314,34 @@ public class MemberReturnLoanBookPage extends javax.swing.JFrame {
 
     }
 
+    public int returnLoanId() {
+        int idemprunt = -1;
+        int bookId = getBookIdByName(BookTitle.getText());
+        int SubsId = memberId;
+
+        try {
+            java.sql.Connection con = DatabaseConnection.getConnection();
+            String sql = "SELECT idemprunt FROM emprunts WHERE status = ? AND idlivre = ? AND idabonné = ?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1, "Returned");
+            pst.setInt(2, bookId);
+            pst.setInt(3, SubsId);
+
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                idemprunt = rs.getInt("idemprunt");
+            }
+
+            rs.close();
+            pst.close();
+            con.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return idemprunt;
+    }
     
     private int getBookIdByName(String bookName) {
         int bookId = -1;
@@ -509,8 +537,13 @@ public class MemberReturnLoanBookPage extends javax.swing.JFrame {
 
     private void AddBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddBtnActionPerformed
         // TODO add your handling code here:
+        int bookId = getBookIdByName(BookTitle.getText());
         if (!isAlreadyReturned()) {
             if (returnLoan()) {
+                // add interface for review
+                int LoanId = returnLoanId();
+                MemberReviewPage MemberReviewPage = new MemberReviewPage(LoanId, bookId, memberId);
+                MemberReviewPage.setVisible(true);
                 JOptionPane.showMessageDialog(this, "Book returned successfully");
                 updateBookCount();
                 clearTable();
