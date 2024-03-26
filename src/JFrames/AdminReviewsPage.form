@@ -211,12 +211,12 @@
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                   <Table columnCount="6" rowCount="0">
-                    <Column editable="true" title="Review ID" type="java.lang.Object"/>
-                    <Column editable="true" title="Emprunt ID" type="java.lang.Object"/>
-                    <Column editable="true" title="MemberName" type="java.lang.Object"/>
-                    <Column editable="true" title="Book Title" type="java.lang.Object"/>
-                    <Column editable="true" title="Stars" type="java.lang.Object"/>
-                    <Column editable="true" title="Comment" type="java.lang.Object"/>
+                    <Column editable="false" title="Review ID" type="java.lang.Object"/>
+                    <Column editable="false" title="Emprunt ID" type="java.lang.Object"/>
+                    <Column editable="false" title="MemberName" type="java.lang.Object"/>
+                    <Column editable="false" title="Book Title" type="java.lang.Object"/>
+                    <Column editable="false" title="Stars" type="java.lang.Object"/>
+                    <Column editable="false" title="Comment" type="java.lang.Object"/>
                   </Table>
                 </Property>
                 <Property name="colorBackgoundHead" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">

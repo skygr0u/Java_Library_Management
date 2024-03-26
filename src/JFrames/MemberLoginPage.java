@@ -1,5 +1,6 @@
 package JFrames;
 
+import ResetPwd.*;
 import biblio.DatabaseConnection;
 import java.security.MessageDigest;
 import java.sql.Connection;
@@ -208,6 +209,11 @@ public class MemberLoginPage extends javax.swing.JFrame {
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel11.setText("Forget Password?");
         jLabel11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel11MouseClicked(evt);
+            }
+        });
         jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(254, 261, 121, 27));
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
@@ -336,6 +342,12 @@ public class MemberLoginPage extends javax.swing.JFrame {
         welcomepage.setVisible(true);
         dispose();
     }//GEN-LAST:event_jLabel12MouseClicked
+
+    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
+        // TODO add your handling code here:
+        MemberTypeEmailPage MemberTypeEmailPage = new MemberTypeEmailPage();
+        MemberTypeEmailPage.setVisible(true);
+    }//GEN-LAST:event_jLabel11MouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

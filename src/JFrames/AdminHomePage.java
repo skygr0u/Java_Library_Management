@@ -956,6 +956,9 @@ public class AdminHomePage extends javax.swing.JFrame {
 
     private void jLabel20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel20MouseClicked
         // TODO add your handling code here:
+        StatsPage StatsPage = new StatsPage();
+        StatsPage.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jLabel20MouseClicked
 
     public static void main(String args[]) {

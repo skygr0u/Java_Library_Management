@@ -3,8 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/SKYMIL/Documents/NetBeansProjects/Biblio/src/JFrames/AdminHomePage.java</file>
-            <file>file:/C:/Users/SKYMIL/Documents/NetBeansProjects/Biblio/src/JFrames/AdminReviewsPage.java</file>
+            <file>file:/C:/Users/SKYMIL/Documents/NetBeansProjects/Biblio/src/ResetPwd/MemberTypeEmailPage.java</file>
+            <file>file:/C:/Users/SKYMIL/Documents/NetBeansProjects/Biblio/src/ResetPwd/ForgotPassword.java</file>
+            <file>file:/C:/Users/SKYMIL/Documents/NetBeansProjects/Biblio/src/ResetPwd/MemberCodeVerification.java</file>
+            <file>file:/C:/Users/SKYMIL/Documents/NetBeansProjects/Biblio/src/JFrames/MemberLoginPage.java</file>
+            <file>file:/C:/Users/SKYMIL/Documents/NetBeansProjects/Biblio/src/ResetPwd/MemberPwdChangePage.java</file>
         </group>
     </open-files>
 </project-private>

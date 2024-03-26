@@ -114,7 +114,15 @@ public class AdminReviewsPage extends javax.swing.JFrame {
             new String [] {
                 "Review ID", "Emprunt ID", "MemberName", "Book Title", "Stars", "Comment"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         Review_Table.setColorBackgoundHead(new java.awt.Color(57, 62, 70));
         Review_Table.setColorFilasForeground1(new java.awt.Color(57, 62, 70));
         Review_Table.setColorFilasForeground2(new java.awt.Color(57, 62, 70));
