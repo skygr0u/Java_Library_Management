@@ -242,8 +242,8 @@ public class MemberPage extends javax.swing.JFrame {
 
     private void jLabel38MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel38MouseClicked
         // TODO add your handling code here:
-        AdminLoginPage loginpage = new AdminLoginPage();
-        loginpage.setVisible(true);
+        MemberLoginPage MemberLoginPage = new MemberLoginPage();
+        MemberLoginPage.setVisible(true);
         dispose();
     }//GEN-LAST:event_jLabel38MouseClicked
 

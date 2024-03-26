@@ -18,8 +18,8 @@ import java.util.Random;
 
 public class MemberCodeVerification extends javax.swing.JFrame {
 
-    private static final String EMAIL_USERNAME = "azizmejri939@gmail.com"; // Replace with your Gmail email address
-    private static final String EMAIL_PASSWORD = "lbwqqxclgzimanzr"; // Replace with your application-specific password
+    private static final String EMAIL_USERNAME = "librarybookclub2@gmail.com"; // Replace with your Gmail email address
+    private static final String EMAIL_PASSWORD = "mfqikvgvoaqcltxk"; // Replace with your application-specific password
     private static final String SMTP_HOST = "smtp.gmail.com"; // Gmail SMTP host
     private static final int SMTP_PORT = 465; // Gmail SMTP port for SSL
     
