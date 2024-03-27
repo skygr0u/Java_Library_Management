@@ -1,6 +1,5 @@
 package ResetPwd;
 
-import JFrames.*;
 import biblio.DatabaseConnection;
 import biblio.DatabaseConnection;
 import java.sql.Connection;

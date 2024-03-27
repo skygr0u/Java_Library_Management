@@ -1,7 +1,7 @@
 package ResetPwd;
 
+import Member.MemberLoginPage;
 import ResetPwd.*;
-import JFrames.*;
 import biblio.DatabaseConnection;
 import biblio.DatabaseConnection;
 import java.security.MessageDigest;
