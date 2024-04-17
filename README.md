@@ -1,6 +1,6 @@
-# LibraryClub 🚀
+# LibraryClub ![Project Banner](https://i.imgur.com/EiEeQtv.png)
 
-📚 **LibraryClub**: Your Ultimate Library Book Management System 🚀
+📚 **LibraryClub**: Your Ultimate Library Book Management System 🚀  
 
 ---
 
@@ -38,7 +38,7 @@ Meet the team behind LibraryClub:
 - **Riadh Tlili**: UI/UX Designer
 - **Khalil Madouri**: Backend Developer
 - **Ayoub Saad**: QA Tester
-
+- For any inquiries or collaboration opportunities, contact us at [librarybookclub2@gmail.com](mailto:team@email.com).
 ---
 
 ## 📝 How to Contribute
@@ -56,6 +56,12 @@ We welcome contributions to LibraryClub! Here's how you can get involved:
 ## 📦 Installation
 
 To install LibraryClub, download the latest JAR file from [this link](https://drive.google.com/drive/folders/1lE0RM7BLiPTkJt3Q1nWB-jqRGMmNDoDC?usp=sharing).
+
+---
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
 
 ---
 
