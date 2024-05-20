@@ -36,7 +36,7 @@ Meet the team behind LibraryClub:
 
 - **Aziz Mejri**: Project Lead & Developer
 - **Riadh Tlili**: UI/UX Designer
-- **Mohaled Khalil Maddouri**: Backend Developer
+- **Mohamed Khalil Maddouri**: Backend Developer
 - **Ayoub Saad**: QA Tester
 - For any inquiries or collaboration opportunities, contact us at [librarybookclub2@gmail.com](mailto:team@email.com).
 ---
